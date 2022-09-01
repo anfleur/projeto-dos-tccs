@@ -1,7 +1,7 @@
 <?php  
 
     $hostname = "localhost";
-    $dbname = "sistcc";
+    $dbname = "sistema_tcc";
     $username = "root";
     $password = "";
 
