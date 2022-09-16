@@ -10,7 +10,7 @@ $(document).ready(function() {
             "url": "libs/DataTables/pt_br.json"
         },
         "columns": [{
-                "data": 'RM',
+                "data": 'ID',
                 "className": 'text-center'
             },
             {
@@ -26,7 +26,7 @@ $(document).ready(function() {
                 "className": 'text-center'
             },
             {
-                "data": 'RM',
+                "data": 'ID',
                 "orderable": false,
                 "searchable": false,
                 "className": 'text-center',

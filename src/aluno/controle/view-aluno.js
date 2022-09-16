@@ -1,10 +1,10 @@
 $(document).ready(function() {
 
-    $('#table-comprador').on('click', 'button.btn-view', function(e) {
+    $('#table-aluno').on('click', 'button.btn-view', function(e) {
 
         e.preventDefault()
 
-        // Alterar as informações do modal para apresentação dos dados
+        // Alterar as infoIDações do modal para apresentação dos dados
 
         $('.modal-title').empty()
         $('.modal-body').empty()
@@ -18,12 +18,12 @@ $(document).ready(function() {
             dataType: 'json',
             assync: true,
             data: ID,
-            url: 'src/comprador/modelo/view-comprador.php',
+            url: 'src/aluno/modelo/view-aluno.php',
             success: function(dado) {
                 if (dado.tipo == "success") {
-                    $('.modal-body').load('src/comprador/visao/form-comprador.html', function() {
-                        $('#RM').val(dado.dados.RM)
-                        $('#RM').attr('readonly', 'true')
+                    $('.modal-body').load('src/aluno/visao/form-aluno.html', function() {
+                        $('#ID').val(dado.dados.ID)
+                        $('#ID').attr('readonly', 'true')
                         $('#NOME').val(dado.dados.NOME)
                         $('#NOME').attr('readonly', 'true')
                         $('#EMAIL').val(dado.dados.EMAIL)
@@ -32,13 +32,13 @@ $(document).ready(function() {
                         $('#SENHA').attr('readonly', 'true')
                     })
                     $('.btn-save').hide()
-                    $('#modal-comprador').modal('show')
+                    $('#modal-aluno').modal('show')
                 } else {
                     Swal.fire({ // Inicialização do SweetAlert
                         title: 'Sistema Organizador de TCCs', // Título da janela SweetAler
                         text: dado.mensagem, // Mensagem retornada do microserviço
                         type: dado.tipo, // Tipo de retorno [success, info ou error]
-                        confirmButtonText: 'OK'
+                        confiIDButtonText: 'OK'
                     })
                 }
             }

@@ -4,14 +4,14 @@ $(document).ready(function() {
 
         e.preventDefault()
 
-        let RM = `RM=${$(this).attr('rm')}`
+        let ID = `ID=${$(this).attr('ID')}`
 
         Swal.fire({
             title: 'Sistema Organizador de TCCs',
             text: 'Deseja realmente excluir esse registro?',
             icon: 'question',
             showCancelButton: true,
-            confirmButtonText: 'Sim',
+            confiIDButtonText: 'Sim',
             cancelButtonText: 'Não'
         }).then((result => {
             if (result.value) {
@@ -20,7 +20,7 @@ $(document).ready(function() {
                     type: 'POST',
                     dataType: 'json',
                     assync: true,
-                    data: RM,
+                    data: ID,
                     url: 'src/aluno/modelo/delete-aluno.php',
                     success: function(dados) {
                         Swal.fire({

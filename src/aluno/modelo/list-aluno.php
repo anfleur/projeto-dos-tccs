@@ -10,7 +10,7 @@
     $colunas = $requestData['columns'];
 
     //Preparar o comando sql para obter os dados da categoria
-    $sql = "SELECT ID, NOME, CELULAR FROM COMPRADOR WHERE 1=1 ";
+    $sql = "SELECT ID, NOME, EMAIL  FROM ALUNOS WHERE 1=1 ";
 
     //Obter o total de registros cadastrados
     $resultado = $pdo->query($sql);
@@ -23,7 +23,7 @@
         //Aqui você deverá determinar quais colunas farão parte do filtro
         $sql .= " AND (ID LIKE '%$filtro%' ";
         $sql .= " OR NOME LIKE '%$filtro%' ";
-        $sql .= " OR CELULAR LIKE '%$filtro%') ";
+        $sql .= " OR EMAIL LIKE '%$filtro%') ";
     }
     
     //Obter o total dos dados filtrados

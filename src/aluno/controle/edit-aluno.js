@@ -4,26 +4,26 @@ $(document).ready(function() {
 
         e.preventDefault()
 
-        // Alterar as informações do modal para apresentação dos dados
+        // Alterar as infoIDações do modal para apresentação dos dados
 
         $('.modal-title').empty()
         $('.modal-body').empty()
 
         $('.modal-title').append('Visualização de registro')
 
-        let RM = `RM=${$(this).attr('rm')}`
+        let ID = `ID=${$(this).attr('ID')}`
 
         $.ajax({
             type: 'POST',
             dataType: 'json',
             assync: true,
-            data: RM,
+            data: ID,
             url: 'src/aluno/modelo/view-aluno.php',
             success: function(dado) {
                 if (dado.tipo == "success") {
                     $('.modal-body').load('src/aluno/visao/form-aluno.html', function() {
                         $('#NOME').val(dado.dados.NOME)
-                        $('#RM').val(dado.dados.RM)
+                        $('#ID').val(dado.dados.ID)
                         $('#EMAIL').val(dado.dados.EMAIL)
                         $('#SENHA').val(dado.dados.SENHA)
                     })
@@ -35,7 +35,7 @@ $(document).ready(function() {
                         title: 'Sistema Organizador de TCCs', // Título da janela SweetAler
                         text: dado.mensagem, // Mensagem retornada do microserviço
                         type: dado.tipo, // Tipo de retorno [success, info ou error]
-                        confirmButtonText: 'OK'
+                        confiIDButtonText: 'OK'
                     })
                 }
             }
