@@ -2,7 +2,7 @@
 
     include('../../conexao/conn.php');
 
-    $sql = "SELECT * FROM CURSO ORDER BY ID DESC";
+    $sql = "SELECT * FROM CURSO ORDER BY NOME DESC";
 
     $resultado = $pdo->query($sql);
 

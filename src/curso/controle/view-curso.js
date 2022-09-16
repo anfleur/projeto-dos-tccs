@@ -31,7 +31,7 @@ $(document).ready(function() {
                     Swal.fire({ // Inicialização do SweetAlert
                         title: 'Sistema Organizador de TCCs', // Título da janela SweetAler
                         text: dado.mensagem, // Mensagem retornada do microserviço
-                        type: dado.tipo, // curso de retorno [success, info ou error]
+                        type: dado.tipo, // Tipo de retorno [success, info ou error]
                         confirmButtonText: 'OK'
                     })
                 }
