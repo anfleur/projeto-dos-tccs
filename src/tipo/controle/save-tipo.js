@@ -3,7 +3,7 @@ $(document).ready(function() {
     $('.btn-save').click(function(e) {
         e.preventDefault()
 
-        let dados = $('#form-curso').serialize()
+        let dados = $('#form-tipo').serialize()
 
         dados += `&operacao=${$('.btn-save').attr('data-operation')}`
 
@@ -12,17 +12,17 @@ $(document).ready(function() {
             dataType: 'json',
             assync: true,
             data: dados,
-            url: 'src/curso/modelo/save-curso.php',
+            url: 'src/tipo/modelo/save-tipo.php',
             success: function(dados) {
                 Swal.fire({
-                    title: 'Sistema Gerenciador de TCCs',
+                    title: 'Rifa',
                     text: dados.mensagem,
                     icon: dados.tipo,
                     confirmButtonText: 'OK'
                 })
 
-                $('#modal-curso').modal('hide')
-                $('#table-curso').DataTable().ajax.reload()
+                $('#modal-tipo').modal('hide')
+                $('#table-tipo').DataTable().ajax.reload()
             }
         })
     })

@@ -3,7 +3,7 @@ $(document).ready(function() {
     $('.btn-save').click(function(e) {
         e.preventDefault()
 
-        let dados = $('#form-curso').serialize()
+        let dados = $('#form-eixo').serialize()
 
         dados += `&operacao=${$('.btn-save').attr('data-operation')}`
 
@@ -12,7 +12,7 @@ $(document).ready(function() {
             dataType: 'json',
             assync: true,
             data: dados,
-            url: 'src/curso/modelo/save-curso.php',
+            url: 'src/eixo/modelo/save-eixo.php',
             success: function(dados) {
                 Swal.fire({
                     title: 'Sistema Gerenciador de TCCs',
@@ -21,8 +21,8 @@ $(document).ready(function() {
                     confirmButtonText: 'OK'
                 })
 
-                $('#modal-curso').modal('hide')
-                $('#table-curso').DataTable().ajax.reload()
+                $('#modal-eixo').modal('hide')
+                $('#eixo').DataTable().ajax.reload()
             }
         })
     })

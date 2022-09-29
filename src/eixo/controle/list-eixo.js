@@ -1,9 +1,9 @@
 $(document).ready(function() {
-    $('#table-curso').DataTable({
+    $('#eixo').DataTable({
         "processing": true,
         "serverSide": true,
         "ajax": {
-            "url": "src/curso/modelo/list-curso.php",
+            "url": "src/eixo/modelo/list-eixo.php",
             "type": "POST"
         },
         "language": {
@@ -14,7 +14,7 @@ $(document).ready(function() {
                 "className": 'text-center'
             },
             {
-                "data": 'NOME',
+                "data": 'TITULO',
                 "className": 'text-center'
             },
             {

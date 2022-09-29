@@ -1,13 +1,13 @@
 $(document).ready(function() {
 
-    $('#table-curso').on('click', 'button.btn-delete', function(e) {
+    $('#table-vendedor').on('click', 'button.btn-delete', function(e) {
 
         e.preventDefault()
 
         let ID = `ID=${$(this).attr('id')}`
 
         Swal.fire({
-            title: 'Sistema Gerenciador de TCCs',
+            title: 'Sistema de rifas',
             text: "Deseja realmente excluir esse registro?",
             icon: 'question',
             showCancelButton: true,
@@ -21,16 +21,16 @@ $(document).ready(function() {
                     dataType: 'json',
                     assync: true,
                     data: ID,
-                    url: 'src/curso/modelo/delete-curso.php',
+                    url: 'src/vendedor/modelo/delete-vendedor.php',
                     success: function(dados) {
                         Swal.fire({
-                            title: 'Sistema Gerenciador de TCCs',
+                            title: 'Sistema de Rifas',
                             text: dados.mensagem,
                             icon: dados.tipo,
                             confirmButtonText: 'OK'
                         })
 
-                        $('#table-curso').DataTable().ajax.reload()
+                        $('#table-vendedor').DataTable().ajax.reload()
                     }
                 })
 

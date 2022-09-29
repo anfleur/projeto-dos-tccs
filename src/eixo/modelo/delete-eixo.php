@@ -7,7 +7,7 @@
     $ID = $_REQUEST['ID'];
 
     // Criar a nossa querie para interação com o banco de dados
-    $sql = "DELETE FROM ALUNOS WHERE ID = $ID";
+    $sql = "DELETE FROM EIXO WHERE ID = $ID";
 
     // Executar a nossa querie
     $resultado = $pdo->query($sql);

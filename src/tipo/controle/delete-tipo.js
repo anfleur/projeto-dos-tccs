@@ -1,19 +1,19 @@
 $(document).ready(function() {
 
-    $('#table-curso').on('click', 'button.btn-delete', function(e) {
+    $('#table-tipo').on('click', 'button.btn-delete', function(e) {
 
         e.preventDefault()
 
         let ID = `ID=${$(this).attr('id')}`
 
         Swal.fire({
-            title: 'Sistema Gerenciador de TCCs',
-            text: "Deseja realmente excluir esse registro?",
+            title: 'e-Rifa',
+            text: 'Deseja realmente excluir esse registro?',
             icon: 'question',
             showCancelButton: true,
             confirmButtonText: 'Sim',
             cancelButtonText: 'Não'
-        }).then((result) => {
+        }).then((result => {
             if (result.value) {
 
                 $.ajax({
@@ -21,21 +21,20 @@ $(document).ready(function() {
                     dataType: 'json',
                     assync: true,
                     data: ID,
-                    url: 'src/curso/modelo/delete-curso.php',
+                    url: 'src/tipo/modelo/delete-tipo.php',
                     success: function(dados) {
                         Swal.fire({
-                            title: 'Sistema Gerenciador de TCCs',
+                            title: 'e-Rifa',
                             text: dados.mensagem,
                             icon: dados.tipo,
                             confirmButtonText: 'OK'
                         })
 
-                        $('#table-curso').DataTable().ajax.reload()
+                        $('#table-tipo').DataTable().ajax.reload()
                     }
                 })
-
-
             }
-        })
+        }))
+
     })
 })

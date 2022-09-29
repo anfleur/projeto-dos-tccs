@@ -9,7 +9,7 @@ $(document).ready(function() {
         $('.modal-title').empty()
         $('.modal-body').empty()
 
-        $('.modal-title').append('Visualização de registro')
+        $('.modal-title').append('Visualização de curso')
 
         let ID = `ID=${$(this).attr('id')}`
 
@@ -24,12 +24,25 @@ $(document).ready(function() {
                     $('.modal-body').load('src/curso/visao/form-curso.html', function() {
                         $('#NOME').val(dado.dados.NOME)
                         $('#NOME').attr('readonly', 'true')
+                        var eixo = dado.dados.EIXO_ID
+                        $.ajax({
+                            type: 'POST',
+                            dataType: 'json',
+                            url: 'src/eixo/modelo/all-eixo.php',
+                            success: function(dados) {
+                                for (const dado of dados) {
+                                    if (dado.ID == eixo) {
+                                        $('#EIXO_ID').append(`<option value="${dado.ID}">${dado.TITULO}</option>`)
+                                    }
+                                }
+                            }
+                        })
                     })
                     $('.btn-save').hide()
                     $('#modal-curso').modal('show')
                 } else {
                     Swal.fire({ // Inicialização do SweetAlert
-                        title: 'Sistema Organizador de TCCs', // Título da janela SweetAler
+                        title: 'Sistema Gerenciador de TCCs', // Título da janela SweetAler
                         text: dado.mensagem, // Mensagem retornada do microserviço
                         type: dado.tipo, // Tipo de retorno [success, info ou error]
                         confirmButtonText: 'OK'

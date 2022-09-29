@@ -7,21 +7,22 @@
     $ID = $_REQUEST['ID'];
 
     // Gero a querie de consulta no banco de dados
-    $sql = "SELECT * FROM ALUNOS WHERE ID = $ID";
+    $sql = "SELECT * FROM VENDEDOR WHERE ID = $ID";
 
     // Executar nossa querie de consulta ao banco de dados
     $resultado = $pdo->query($sql);
 
     // Testar a minha consulta de banco de dados
     if($resultado){
-        $dadosEixo = array();
+        $result = array();
         while($row = $resultado->fetch(PDO::FETCH_ASSOC)){
-            $dadosEixo = array_map(NULL, $row);
+            //$result = array_map('utf8_encode', $row);
+            $result = array_map(null, $row);
         }
         $dados = array(
             'tipo' => 'success',
             'mensagem' => '',
-            'dados' => $dadosEixo
+            'dados' => $result
         );
     } else {
         $dados = array(

@@ -1,9 +1,9 @@
 $(document).ready(function() {
-    $('#table-aluno').DataTable({
+    $('#table-vendedor').DataTable({
         "processing": true,
         "serverSide": true,
         "ajax": {
-            "url": "src/aluno/modelo/list-aluno.php",
+            "url": "src/vendedor/modelo/list-vendedor.php",
             "type": "POST"
         },
         "language": {
@@ -18,11 +18,7 @@ $(document).ready(function() {
                 "className": 'text-center'
             },
             {
-                "data": 'EMAIL',
-                "className": 'text-center'
-            },
-            {
-                "data": 'SENHA',
+                "data": 'CELULAR',
                 "className": 'text-center'
             },
             {

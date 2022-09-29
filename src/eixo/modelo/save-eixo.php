@@ -7,7 +7,7 @@
     $requestData = $_REQUEST;
 
     // Verificação de campo obrigatórios do formulário
-    if(empty($requestData['NOME'])){
+    if(empty($requestData['TITULO'])){
         // Caso a variável venha vazia eu gero um retorno de erro do mesmo
         $dados = array(
             "tipo" => 'error',
@@ -22,11 +22,9 @@
         if($operacao == 'insert'){
             // Prepara o comando INSERT para ser executado
             try{
-                $stmt = $pdo->prepare('INSERT INTO ALUNOS (NOME, EMAIL, SENHA) VALUES (:a, :b, :c)');
+                $stmt = $pdo->prepare('INSERT INTO EIXO (TITULO) VALUES (:a)');
                 $stmt->execute(array(
-                    ':a' => $requestData['NOME'], 
-                    ':b' => $requestData['EMAIL'],
-                    ':c' => md5($requestData['SENHA'])
+                    ':a' => utf8_decode($requestData['TITULO'])
                 ));
                 $dados = array(
                     "tipo" => 'success',
@@ -41,12 +39,10 @@
         } else {
             // Se minha variável operação estiver vazia então devo gerar os scripts de update
             try{
-                $stmt = $pdo->prepare('UPDATE ALUNOS SET NOME = :a, EMAIL = :b, SENHA = :c WHERE ID = :id');
+                $stmt = $pdo->prepare('UPDATE EIXO SET TITULO = :a WHERE ID = :id');
                 $stmt->execute(array(
                     ':id' => $ID,
-                    ':a' => $requestData['NOME'],
-                    ':b' => $requestData['EMAIL'],
-                    ':c' => md5($requestData['SENHA'])
+                    ':a' => utf8_decode($requestData['TITULO'])
                 ));
                 $dados = array(
                     "tipo" => 'success',

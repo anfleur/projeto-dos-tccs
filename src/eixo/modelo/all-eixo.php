@@ -7,7 +7,7 @@
     $dados = array();
 
     // Query de consulta ao banco de dados
-    $sql = "SELECT * FROM CURSO ORDER BY NOME ASC";
+    $sql = "SELECT * FROM EIXO ORDER BY TITULO ASC";
 
     // Executar a querie de consulta SQL
     $resultado = $pdo->query($sql);

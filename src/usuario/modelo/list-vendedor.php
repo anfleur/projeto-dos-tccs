@@ -1,6 +1,6 @@
 <?php
 
-    //Realizar o include da conexão
+    //Obter a conexão com o banco de dados
     include('../../conexao/conn.php');
 
 
@@ -11,7 +11,7 @@
     $colunas = $requestData['columns'];
 
     //Preparar o comando sql para obter os dados da categoria
-    $sql = "SELECT ID, NOME FROM CURSO WHERE 1=1 ";
+    $sql = "SELECT ID, NOME, CELULAR FROM VENDEDOR WHERE 1=1 ";
 
     //Obter o total de registros cadastrados
     $resultado = $pdo->query($sql);
@@ -23,7 +23,8 @@
         //Montar a expressão lógica que irá compor os filtros
         //Aqui você deverá determinar quais colunas farão parte do filtro
         $sql .= " AND (ID LIKE '$filtro%' ";
-        $sql .= " OR NOME LIKE '$filtro%') ";
+        $sql .= " OR NOME LIKE '$filtro%' ";
+        $sql .= " OR CELULAR LIKE '$filtro%') ";
     }
     
     //Obter o total dos dados filtrados
@@ -44,7 +45,8 @@
     $resultado = $pdo->query($sql);
     $dados = array();
     while($row = $resultado->fetch(PDO::FETCH_ASSOC)){
-        $dados[] = array_map('utf8_encode', $row);
+        //$dados[] = array_map('utf8_encode', $row);
+        $dados[] = array_map(null,$row);
     }
     //Monta o objeto json para retornar ao DataTable
     $json_data = array(
@@ -53,7 +55,6 @@
         "recordsFiltered" => intval($totalFiltrados),
         "data" => $dados
     );
-
 
 
     //Retorna o objeto json para o DataTable

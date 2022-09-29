@@ -1,17 +1,17 @@
 $(document).ready(function() {
 
-    $('#table-aluno').on('click', 'button.btn-delete', function(e) {
+    $('#eixo').on('click', 'button.btn-delete', function(e) {
 
         e.preventDefault()
 
-        let ID = `ID=${$(this).attr('ID')}`
+        let ID = `ID=${$(this).attr('id')}`
 
         Swal.fire({
-            title: 'Sistema Organizador de TCCs',
+            title: 'Sistema Gerenciador de TCCs',
             text: 'Deseja realmente excluir esse registro?',
             icon: 'question',
             showCancelButton: true,
-            confiIDButtonText: 'Sim',
+            confirmButtonText: 'Sim',
             cancelButtonText: 'Não'
         }).then((result => {
             if (result.value) {
@@ -21,16 +21,16 @@ $(document).ready(function() {
                     dataType: 'json',
                     assync: true,
                     data: ID,
-                    url: 'src/aluno/modelo/delete-aluno.php',
+                    url: 'src/eixo/modelo/delete-eixo.php',
                     success: function(dados) {
                         Swal.fire({
-                            title: 'Sistema Organizador de TCCs',
+                            title: 'Sistema Gerenciador de TCCs',
                             text: dados.mensagem,
                             icon: dados.tipo,
                             confirmButtonText: 'OK'
                         })
 
-                        $('#table-aluno').DataTable().ajax.reload()
+                        $('#eixo').DataTable().ajax.reload()
                     }
                 })
             }

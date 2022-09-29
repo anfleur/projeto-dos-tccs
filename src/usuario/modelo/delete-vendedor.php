@@ -4,7 +4,7 @@ include('../../conexao/conn.php');
 
 $ID = $_REQUEST['ID'];
 
-$sql = "DELETE FROM CURSO WHERE ID = $ID";
+$sql = "DELETE FROM VENDEDOR WHERE ID = $ID";
 
 $resultado = $pdo->query($sql);
 

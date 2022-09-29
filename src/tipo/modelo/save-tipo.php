@@ -22,11 +22,9 @@
         if($operacao == 'insert'){
             // Prepara o comando INSERT para ser executado
             try{
-                $stmt = $pdo->prepare('INSERT INTO CURSO (NOME, EIXO_ID) VALUES (:a, :b)');
+                $stmt = $pdo->prepare('INSERT INTO TIPO (NOME) VALUES (:a)');
                 $stmt->execute(array(
-                    //':a' => utf8_decode($requestData['NOME'])
-                    ':a' => $requestData['NOME'],
-                    ':b' => $requestData['EIXO_ID'],
+                    ':a' => utf8_decode($requestData['NOME'])
                 ));
                 $dados = array(
                     "tipo" => 'success',
@@ -35,18 +33,16 @@
             } catch(PDOException $e) {
                 $dados = array(
                     "tipo" => 'error',
-                    "mensagem" => 'Não foi possível salvar o registro: .'.$e
+                    "mensagem" => 'Não foi possível efetuar o cadastro do curso.'
                 );
             }
         } else {
             // Se minha variável operação estiver vazia então devo gerar os scripts de update
             try{
-                $stmt = $pdo->prepare('UPDATE CURSO SET NOME = :a, EIXO_ID = :b WHERE ID = :id');
+                $stmt = $pdo->prepare('UPDATE TIPO SET NOME = :a WHERE ID = :id');
                 $stmt->execute(array(
                     ':id' => $ID,
-                     //':a' => utf8_decode($requestData['NOME'])
-                    ':a' => $requestData['NOME'],
-                    ':b' => $requestData['EIXO_ID']
+                    ':a' => utf8_decode($requestData['NOME'])
                 ));
                 $dados = array(
                     "tipo" => 'success',
@@ -55,7 +51,7 @@
             } catch (PDOException $e) {
                 $dados = array(
                     "tipo" => 'error',
-                    "mensagem" => 'Não foi possível efetuar o alteração do registro.'.$e
+                    "mensagem" => 'Não foi possível efetuar o alteração do registro.'
                 );
             }
         }

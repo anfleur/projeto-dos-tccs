@@ -5,14 +5,14 @@ $(document).ready(function() {
         $('.modal-title').empty()
         $('.modal-body').empty()
 
-        $('.modal-title').append('Adicionar novo aluno')
+        $('.modal-title').append('Adicionar novo eixo.')
 
-        $('.modal-body').load('src/aluno/visao/form-aluno.html')
+        $('.modal-body').load('src/eixo/visao/form-eixo.html')
 
         $('.btn-save').show()
 
         $('.btn-save').attr('data-operation', 'insert')
 
-        $('#modal-aluno').modal('show')
+        $('#modal-eixo').modal('show')
     })
 })

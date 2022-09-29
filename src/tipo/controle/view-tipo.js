@@ -1,10 +1,10 @@
 $(document).ready(function() {
 
-    $('#table-aluno').on('click', 'button.btn-view', function(e) {
+    $('#table-tipo').on('click', 'button.btn-view', function(e) {
 
         e.preventDefault()
 
-        // Alterar as infoIDações do modal para apresentação dos dados
+        // Alterar as informações do modal para apresentação dos dados
 
         $('.modal-title').empty()
         $('.modal-body').empty()
@@ -18,27 +18,21 @@ $(document).ready(function() {
             dataType: 'json',
             assync: true,
             data: ID,
-            url: 'src/aluno/modelo/view-aluno.php',
+            url: 'src/tipo/modelo/view-tipo.php',
             success: function(dado) {
                 if (dado.tipo == "success") {
-                    $('.modal-body').load('src/aluno/visao/form-aluno.html', function() {
-                        $('#ID').val(dado.dados.ID)
-                        $('#ID').attr('readonly', 'true')
+                    $('.modal-body').load('src/tipo/visao/form-tipo.html', function() {
                         $('#NOME').val(dado.dados.NOME)
                         $('#NOME').attr('readonly', 'true')
-                        $('#EMAIL').val(dado.dados.EMAIL)
-                        $('#EMAIL').attr('readonly', 'true')
-                        $('#SENHA').val(dado.dados.SENHA)
-                        $('#SENHA').attr('readonly', 'true')
                     })
                     $('.btn-save').hide()
-                    $('#modal-aluno').modal('show')
+                    $('#modal-tipo').modal('show')
                 } else {
                     Swal.fire({ // Inicialização do SweetAlert
-                        title: 'Sistema Organizador de TCCs', // Título da janela SweetAler
+                        title: 'e-Rifa', // Título da janela SweetAler
                         text: dado.mensagem, // Mensagem retornada do microserviço
                         type: dado.tipo, // Tipo de retorno [success, info ou error]
-                        confiIDButtonText: 'OK'
+                        confirmButtonText: 'OK'
                     })
                 }
             }
