@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 22-Set-2022 às 14:26
--- Versão do servidor: 10.4.20-MariaDB
--- versão do PHP: 8.0.8
+-- Tempo de geração: 05-Out-2022 às 20:26
+-- Versão do servidor: 10.4.11-MariaDB
+-- versão do PHP: 7.2.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -29,19 +30,35 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `curso` (
   `ID` int(11) NOT NULL,
-  `NOME` varchar(200) NOT NULL
+  `NOME` varchar(200) NOT NULL,
+  `EIXO_ID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `curso`
+--
+
+INSERT INTO `curso` (`ID`, `NOME`, `EIXO_ID`) VALUES
+(2, 'RH', 1);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `eixos_curso`
+-- Estrutura da tabela `eixo`
 --
 
-CREATE TABLE `eixos_curso` (
+CREATE TABLE `eixo` (
   `ID` int(11) NOT NULL,
-  `EIXO` varchar(50) NOT NULL
+  `TITULO` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `eixo`
+--
+
+INSERT INTO `eixo` (`ID`, `TITULO`) VALUES
+(1, 'Humanas'),
+(6, 'Informatica');
 
 -- --------------------------------------------------------
 
@@ -61,25 +78,36 @@ CREATE TABLE `tcc` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tipo_usuario`
+-- Estrutura da tabela `tipo`
 --
 
-CREATE TABLE `tipo_usuario` (
+CREATE TABLE `tipo` (
   `ID` int(11) NOT NULL,
-  `TIPO` varchar(50) NOT NULL
+  `NOME` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `tipo`
+--
+
+INSERT INTO `tipo` (`ID`, `NOME`) VALUES
+(1, 'Professor'),
+(2, 'Aluno'),
+(3, 'Administrador');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `usuarios`
+-- Estrutura da tabela `usuario`
 --
 
-CREATE TABLE `usuarios` (
-  `ID_USUARIO` int(11) NOT NULL,
+CREATE TABLE `usuario` (
+  `ID` int(11) NOT NULL,
   `NOME` varchar(50) NOT NULL,
+  `LOGIN` int(11) NOT NULL,
   `EMAIL` varchar(100) NOT NULL,
-  `SENHA` varchar(70) NOT NULL
+  `SENHA` varchar(70) NOT NULL,
+  `TIPO_ID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -94,9 +122,9 @@ ALTER TABLE `curso`
   ADD UNIQUE KEY `idcurso_UNIQUE` (`ID`);
 
 --
--- Índices para tabela `eixos_curso`
+-- Índices para tabela `eixo`
 --
-ALTER TABLE `eixos_curso`
+ALTER TABLE `eixo`
   ADD PRIMARY KEY (`ID`);
 
 --
@@ -108,16 +136,16 @@ ALTER TABLE `tcc`
   ADD KEY `fk_tcc_curso_idx` (`CURSO_IDCURSO`) USING BTREE;
 
 --
--- Índices para tabela `tipo_usuario`
+-- Índices para tabela `tipo`
 --
-ALTER TABLE `tipo_usuario`
+ALTER TABLE `tipo`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Índices para tabela `usuarios`
+-- Índices para tabela `usuario`
 --
-ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`ID_USUARIO`);
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`ID`);
 
 --
 -- AUTO_INCREMENT de tabelas despejadas
@@ -127,13 +155,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `curso`
 --
 ALTER TABLE `curso`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT de tabela `eixos_curso`
+-- AUTO_INCREMENT de tabela `eixo`
 --
-ALTER TABLE `eixos_curso`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `eixo`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de tabela `tcc`
@@ -142,16 +170,16 @@ ALTER TABLE `tcc`
   MODIFY `IDTCC` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `tipo_usuario`
+-- AUTO_INCREMENT de tabela `tipo`
 --
-ALTER TABLE `tipo_usuario`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `tipo`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT de tabela `usuarios`
+-- AUTO_INCREMENT de tabela `usuario`
 --
-ALTER TABLE `usuarios`
-  MODIFY `ID_USUARIO` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `usuario`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restrições para despejos de tabelas
