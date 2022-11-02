@@ -1,0 +1,57 @@
+<div class="row mt-5">
+    <div class="col-12">
+        <div class="card shadow mt-5">
+            <div class="card-header">
+                <div class="card-title">
+                    <div class="row">
+                        <div class="col-12 col-md-9">
+                            <h4 class="text-dark">
+                                Gerenciar usuarios
+                            </h4>
+                        </div>
+                        <div class="col-12 col-md-3">
+                            <button class="btn btn-block btn-dark btn-new">
+                                <i class="fas fa-plus-circle"></i> Adicionar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover" id="table-usuario">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col" class="text-center">ID</th>
+                                    <th scope="col" class="text-center">LOGIN</th>
+                                    
+                                    <th scope="col" class="text-center">AÇÕES</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="modal-usuario" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <p>Content</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="close" data-dismiss="modal"><i class="fas fa-times-circle"></i> Fechar</button>
+                <button class="btn btn-success btn-save"><i class="fas fa-save"></i> Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="src/usuario/controle/new-usuario.js"></script>
+<script src="src/usuario/controle/save-usuario.js"></script>
+<script src="src/usuario/controle/list-usuario.js"></script>
+<script src="src/usuario/controle/view-usuario.js"></script>
+<script src="src/usuario/controle/edit-usuario.js"></script>
+<script src="src/usuario/controle/delete-usuario.js"></script>

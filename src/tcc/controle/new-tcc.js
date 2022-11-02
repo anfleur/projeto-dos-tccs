@@ -5,10 +5,10 @@ $(document).ready(function() {
         $('.modal-title').empty()
 
 
-        $('.modal-title').append('Adicionar novo tcc')
+        $('.modal-title').append('Adicionar novo vendedor')
 
         $('.modal-body').load('src/tcc/visao/form-tcc.html', function() {
-            // Criar um ajax para buscar todos os tipos de tcces possiveis
+            // Criar um ajax para buscar todos os tipos de vendedores possiveis
             $.ajax({
                 dataType: 'json',
                 type: 'POST',

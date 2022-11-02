@@ -22,9 +22,12 @@ $(document).ready(function() {
             success: function(dado) {
                 if (dado.tipo == "success") {
                     $('.modal-body').load('src/tcc/visao/form-tcc.html', function() {
-                        $('#NOME').val(dado.dados.NOME)
+                        $('#TITULO').val(dado.dados.TITULO)
                         $('#ANO').val(dado.dados.ANO)
-                        $('#DESCRICAO').val(dado.dados.DESCRICAO)
+                        $('#RESUMO').val(dado.dados.RESUMO)
+                        $('#COORIENTADOR').val(dado.dados.COORIENTADOR)
+                        $('#ORIENTADOR').val(dado.dados.ORIENTADOR)
+                        $('#ARQUIVO').val(dado.dados.ARQUIVO)
                         $('#CURSO_ID').empty()
                         $('#ID').val(dado.dados.ID)
 
@@ -53,9 +56,9 @@ $(document).ready(function() {
                     $('#modal-tcc').modal('show')
                 } else {
                     Swal.fire({ // Inicialização do SweetAlert
-                        title: 'Sistema Organizador de TCCs', // Título da janela SweetAlert
+                        title: 'Sistema Gerenciador de TCCs', // Título da janela SweetAlert
                         text: dado.mensagem, // Mensagem retornada do microserviço
-                        type: dado.tipo, // tcc de retorno [success, info ou error]
+                        type: dado.tipo, // vendedor de retorno [success, info ou error]
                         confirmButtonText: 'OK'
                     })
                 }

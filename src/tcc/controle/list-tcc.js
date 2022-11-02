@@ -14,15 +14,7 @@ $(document).ready(function() {
                 "className": 'text-center'
             },
             {
-                "data": 'NOME',
-                "className": 'text-center'
-            },
-            {
-                "data": 'ANO',
-                "className": 'text-center'
-            },
-            {
-                "data": 'DESCRICAO',
+                "data": 'TITULO',
                 "className": 'text-center'
             },
             {
@@ -32,9 +24,9 @@ $(document).ready(function() {
                 "className": 'text-center',
                 "render": function(data, type, row, meta) {
                     return `
-                    <button id="${data}" class="btn btn-info btn-sm btn-view"><i class="fa-solid fa-eye"></i></button>
-                    <button id="${data}" class="btn btn-primary btn-sm btn-edit"><i class="fa-solid fa-marker"></i></button>
-                    <button id="${data}" class="btn btn-danger btn-sm btn-delete"><i class="fa-solid fa-trash"></i></button>
+                    <button id="${data}" class="btn btn-info btn-sm btn-view"><i class="fas fa-eye"></i></button>
+                    <button id="${data}" class="btn btn-primary btn-sm btn-edit"><i class="fas fa-edit"></i></button>
+                    <button id="${data}" class="btn btn-danger btn-sm btn-delete"><i class="fas fa-trash-alt"></i></button>
                     `
                 }
             }

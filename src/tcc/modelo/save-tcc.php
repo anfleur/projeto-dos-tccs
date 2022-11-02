@@ -1,69 +1,125 @@
 <?php
+    /******
+     * Upload de imagens
+     ******/
 
-    // Obter a nossa conexão com o banco de dados
-    include('../../conexao/conn.php');
+    //  echo $_FILES[ 'archive' ][ 'name' ];
 
-    // Obter os dados enviados do formulário via $_REQUEST
-    $requestData = $_REQUEST;
+    // verifica se foi enviado um arquivo
+    if ( isset( $_FILES[ 'ARQUIVO' ][ 'name' ] ) && $_FILES[ 'ARQUIVO' ][ 'error' ] == 0 ) {
+        // echo 'Você enviou o arquivo: <strong>' . $_FILES[ 'archive' ][ 'name' ] . '</strong><br />';
+        // echo 'Este arquivo é do tipo: <strong > ' . $_FILES[ 'archive' ][ 'type' ] . ' </strong ><br />';
+        // echo 'Temporáriamente foi salvo em: <strong>' . $_FILES[ 'archive' ][ 'tmp_name' ] . '</strong><br />';
+        // echo 'Seu tamanho é: <strong>' . $_FILES[ 'archive' ][ 'size' ] . '</strong> Bytes<br /><br />';
 
-    // Verificação de campo obrigatórios do formulário
-    if(empty($requestData['NOME'])){
-        // Caso a variável venha vazia eu gero um retorno de erro do mesmo
-        $dados = array(
-            "tipo" => 'error',
-            "mensagem" => 'Existe(m) campo(s) obrigatório(s) não preenchido(s).'
-        );
-    } else {
-        // Caso não exista campo em vazio, vamos gerar a requisição
-        $ID = isset($requestData['ID']) ? $requestData['ID'] : '';
-        $operacao = isset($requestData['operacao']) ? $requestData['operacao'] : '';
+        $arquivo_tmp = $_FILES[ 'ARQUIVO' ][ 'tmp_name' ];
+        $nome = $_FILES[ 'ARQUIVO' ][ 'name' ];
 
-        // Verifica se é para cadastra um nvo registro
-        if($operacao == 'insert'){
-            // Prepara o comando INSERT para ser executado
-            try{
-                $stmt = $pdo->prepare('INSERT INTO tcc (NOME,ANO, DESCRICAO, CURSO_ID) VALUES (:a, :b, :c, :d)');
-                $stmt->execute(array(
-                    //':a' => utf8_decode($requestData['NOME'])
-                    ':a' => $requestData['NOME'],
-                    ':b' => $requestData['ANO'],
-                    ':c' => $requestData['DESCRICAO'],
-                    ':d' => $requestData['CURSO_ID']
-                ));
-                $dados = array(
-                    "tipo" => 'success',
-                    "mensagem" => 'Registro salvo com sucesso.'
-                );
-            } catch(PDOException $e) {
-                $dados = array(
-                    "tipo" => 'error',
-                    "mensagem" => 'Não foi possível salvar o registro: .'.$e
-                );
+        // Pega a extensão
+        $extensao = pathinfo ( $nome, PATHINFO_EXTENSION );
+
+        // Converte a extensão para minúsculo
+        $extensao = strtolower ( $extensao );
+
+        // Somente imagens, .jpg;.jpeg;.gif;.png
+        // Aqui eu enfileiro as extensões permitidas e separo por ';'
+        // Isso serve apenas para eu poder pesquisar dentro desta String
+        if ( strstr ( '.pdf', $extensao ) ) {
+            // Cria um nome único para esta imagem
+            // Evita que duplique as imagens no servidor.
+            // Evita nomes com acentos, espaços e caracteres não alfanuméricos
+            $novoNome = uniqid ( time () ) . '.' . $extensao;
+
+            // Concatena a pasta com o nome
+            $destino = 'arquivos/' . $novoNome;
+
+            // tenta mover o arquivo para o destino
+            if ( @move_uploaded_file ( $arquivo_tmp, $destino ) ) {
+                
+                // Scripts de persistência no banco de dados .....
+                // Obter a nossa conexão com o banco de dados
+                include('../../conexao/conn.php');
+
+                // Obter os dados enviados do formulário via $_REQUEST
+                $requestData = $_REQUEST;
+
+                // Verificação de campo obrigatórios do formulário
+                if(empty($requestData['TITULO'])){
+                    // Caso a variável venha vazia eu gero um dados de erro do mesmo
+                    $dados = array(
+                        "tipo" => 'error',
+                        "mensagem" => 'Existe(m) campo(s) obrigatório(s) não preenchido(s).'
+                    );
+                    
+                } else {
+                    // Caso não exista campo em vazio, vamos gerar a requisição
+                    $ID = isset($requestData['ID']) ? $requestData['ID'] : '';
+                    $operacao = isset($requestData['operacao']) ? $requestData['operacao'] : '';
+
+                    // Verifica se é para cadastra um nvo registro
+                    if($operacao == 'insert'){
+                        // Prepara o comando INSERT para ser executado
+                        try{
+                            $stmt = $pdo->prepare('INSERT INTO tcc (TITULO, ANO, RESUMO, COORIENTADOR, ORIENTADOR, ARQUIVO, CURSO_ID) VALUES (:a, :b, :c, :d, :e, :f, :g)');
+                            $stmt->execute(array(
+                                ':a' => $requestData['TITULO'],
+                                ':b' => $requestData['ANO'],
+                                ':c' => $requestData['RESUMO'],
+                                ':d' => $requestData['COORIENTADOR'],
+                                ':e' => $requestData['ORIENTADOR'],
+                                ':f' => $novoNome,
+                                ':g' => $requestData['CURSO_ID']
+                            ));
+
+                            $retorno = array(
+                                "tipo" => 'success',
+                                "mensagem" => 'Trabalho cadastrado com sucesso.'
+                            );
+                        } catch(PDOException $e) {
+                            $retorno = array(
+                                "tipo" => 'error',
+                                "mensagem" => 'Não foi possível efetuar o cadastro do trabalho.'
+                            );
+                        }
+                    } else {
+                        // Se minha variável operação estiver vazia então devo gerar os scripts de update
+                        try{
+                            $stmt = $pdo->prepare('UPDATE tcc SET TITULO = :a, ANO = :b, RESUMO = :c, COORIENTADOR = :d, ORIENTADOR = :e, ARQUIVO = :f, CURSO_ID = :g WHERE IDTRABALHO = :id');
+                            $stmt->execute(array(
+                                ':id' => $ID,
+                                ':a' => $requestData['TITULO'],
+                                ':b' => $requestData['ANO'],
+                                ':c' => $requestData['RESUMO'],
+                                ':d' => $requestData['COORIENTADOR'],
+                                ':e' => $requestData['ORIENTADOR'],
+                                ':f' => $requestData['ARQUIVO'],
+                                ':g' => $requestData['CURSO_ID']
+
+                            ));
+
+                            $retorno = array(
+                                "tipo" => 'success',
+                                "mensagem" => 'Trabalho atualizado com sucesso.'
+                            );
+                        } catch (PDOException $e) {
+                            $retorno = array(
+                                "tipo" => 'error',
+                                "mensagem" => 'Não foi possível efetuar o alteração do trabalho.'
+                            );
+                        }
+                    }
+                }
+
+                // $dados = array ('mensagem' => 'Arquivo salvo com sucesso em : ' . $destino);
             }
-        } else {
-            // Se minha variável operação estiver vazia então devo gerar os scripts de update
-            try{
-                $stmt = $pdo->prepare('UPDATE TCC SET NOME = :a, ANO = :b, DESCRICAO = :c, CURSO_ID = :d  WHERE ID = :id');
-                $stmt->execute(array(
-                    ':id' => $ID,
-                     //':a' => utf8_decode($requestData['NOME'])
-                    ':a' => $requestData['NOME'],
-                    ':b' => $requestData['ANO'],
-                    ':c' => $requestData['DESCRICAO'],
-                    ':d' => $requestData['CURSO_ID']
-                ));
-                $dados = array(
-                    "tipo" => 'success',
-                    "mensagem" => 'Registro atualizado com sucesso.'
-                );
-            } catch (PDOException $e) {
-                $dados = array(
-                    "tipo" => 'error',
-                    "mensagem" => 'Não foi possível efetuar o alteração do registro.'.$e
-                );
-            }
+            else
+                $retorno = array ('mensagem' => 'Erro ao salvar o arquivo. Aparentemente você não tem permissão de escrita.');
         }
+        else
+            $retorno = array ('mensagem' => 'Você poderá enviar apenas arquivos "*.PDF"');
     }
+    else
+        $retorno = array ('mensagem' => 'Você não enviou nenhum arquivo!');
 
-    // Converter um array ded dados para a representação JSON
-    echo json_encode($dados);
+
+    echo json_encode($retorno);

@@ -1,30 +1,31 @@
 $(document).ready(function() {
-
     $('.btn-save').click(function(e) {
         e.preventDefault()
 
-        let dados = $('#form-tcc').serialize()
+        url = "src/tcc/modelo/save-tcc.php"
 
-        dados += `&operacao=${$('.btn-save').attr('data-operation')}`
+        var formData = new FormData(document.getElementById("form-tcc"))
 
         $.ajax({
-            type: 'POST',
+            url: url,
+            type: "POST",
+            data: formData,
+            mimeType: "multipart/form-data",
             dataType: 'json',
-            assync: true,
-            data: dados,
-            url: 'src/tcc/modelo/save-tcc.php',
+            contentType: false,
+            cache: false,
+            processData: false,
             success: function(dados) {
                 Swal.fire({
-                    title: 'Sistema organizador de TCCs',
+                    title: 'Sistema Gerenciador de TCCs',
                     text: dados.mensagem,
                     icon: dados.tipo,
                     confirmButtonText: 'OK'
                 })
 
                 $('#modal-tcc').modal('hide')
-                $('#table-tcc').DataTable().ajax.reload()
+                    // $('#table-trabalho').DataTable().ajax.reload()
             }
         })
     })
-
 })

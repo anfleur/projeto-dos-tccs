@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 05-Out-2022 às 20:26
--- Versão do servidor: 10.4.11-MariaDB
--- versão do PHP: 7.2.26
+-- Generation Time: Oct 27, 2022 at 12:57 PM
+-- Server version: 10.4.20-MariaDB
+-- PHP Version: 8.0.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `sistema_tcc`
+-- Database: `sistema_tcc`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `curso`
+-- Table structure for table `curso`
 --
 
 CREATE TABLE `curso` (
@@ -35,35 +34,36 @@ CREATE TABLE `curso` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `curso`
+-- Dumping data for table `curso`
 --
 
 INSERT INTO `curso` (`ID`, `NOME`, `EIXO_ID`) VALUES
-(2, 'RH', 1);
+(1, 'Administrador', 1),
+(2, 'DS', 2);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `eixo`
+-- Table structure for table `eixo`
 --
 
 CREATE TABLE `eixo` (
   `ID` int(11) NOT NULL,
-  `TITULO` varchar(50) NOT NULL
+  `TITULO` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `eixo`
+-- Dumping data for table `eixo`
 --
 
 INSERT INTO `eixo` (`ID`, `TITULO`) VALUES
-(1, 'Humanas'),
-(6, 'Informatica');
+(1, 'Adm'),
+(2, 'Tecnologia');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tcc`
+-- Table structure for table `tcc`
 --
 
 CREATE TABLE `tcc` (
@@ -78,57 +78,70 @@ CREATE TABLE `tcc` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tipo`
+-- Table structure for table `tipo`
 --
 
 CREATE TABLE `tipo` (
   `ID` int(11) NOT NULL,
-  `NOME` varchar(50) NOT NULL
+  `NOME` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `tipo`
+-- Dumping data for table `tipo`
 --
 
 INSERT INTO `tipo` (`ID`, `NOME`) VALUES
-(1, 'Professor'),
+(1, 'Admin'),
 (2, 'Aluno'),
-(3, 'Administrador');
+(3, 'Professor'),
+(4, 'Tecnologia');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `usuario`
+-- Table structure for table `usuarios`
 --
 
-CREATE TABLE `usuario` (
+CREATE TABLE `usuarios` (
   `ID` int(11) NOT NULL,
-  `NOME` varchar(50) NOT NULL,
-  `LOGIN` int(11) NOT NULL,
+  `NOME` varchar(100) DEFAULT NULL,
   `EMAIL` varchar(100) NOT NULL,
-  `SENHA` varchar(70) NOT NULL,
+  `SENHA` varchar(255) NOT NULL,
+  `LOGIN` varchar(50) NOT NULL,
   `TIPO_ID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Índices para tabelas despejadas
+-- Dumping data for table `usuarios`
+--
+
+INSERT INTO `usuarios` (`ID`, `NOME`, `EMAIL`, `SENHA`, `LOGIN`, `TIPO_ID`) VALUES
+(7, 'Laura', 'annalauraamorim063@gmail.com', '202cb962ac59075b964b07152d234b70', 'Laura', 4),
+(8, 'Anna Laura', 'annalauraamorim063@gmail.com', '202cb962ac59075b964b07152d234b70', 'Anna Laura', 7),
+(9, 'anna', 'annalauraamorim063@gmail.com', '202cb962ac59075b964b07152d234b70', 'anna', 8),
+(10, 'Anna Laura', 'annalauraamorim063@gmail.com', '202cb962ac59075b964b07152d234b70', 'Anna Laura', 4),
+(11, 'Anna Laura', 'annalauraamorim063@gmail.com', '202cb962ac59075b964b07152d234b70', 'Anna Laura', 3),
+(12, 'Admin', 'annalauraamorim063@gmail.com', '202cb962ac59075b964b07152d234b70', 'Lara', 2);
+
+--
+-- Indexes for dumped tables
 --
 
 --
--- Índices para tabela `curso`
+-- Indexes for table `curso`
 --
 ALTER TABLE `curso`
   ADD PRIMARY KEY (`ID`),
   ADD UNIQUE KEY `idcurso_UNIQUE` (`ID`);
 
 --
--- Índices para tabela `eixo`
+-- Indexes for table `eixo`
 --
 ALTER TABLE `eixo`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Índices para tabela `tcc`
+-- Indexes for table `tcc`
 --
 ALTER TABLE `tcc`
   ADD PRIMARY KEY (`IDTCC`),
@@ -136,57 +149,57 @@ ALTER TABLE `tcc`
   ADD KEY `fk_tcc_curso_idx` (`CURSO_IDCURSO`) USING BTREE;
 
 --
--- Índices para tabela `tipo`
+-- Indexes for table `tipo`
 --
 ALTER TABLE `tipo`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Índices para tabela `usuario`
+-- Indexes for table `usuarios`
 --
-ALTER TABLE `usuario`
+ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`ID`);
 
 --
--- AUTO_INCREMENT de tabelas despejadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de tabela `curso`
+-- AUTO_INCREMENT for table `curso`
 --
 ALTER TABLE `curso`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT de tabela `eixo`
+-- AUTO_INCREMENT for table `eixo`
 --
 ALTER TABLE `eixo`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT de tabela `tcc`
+-- AUTO_INCREMENT for table `tcc`
 --
 ALTER TABLE `tcc`
   MODIFY `IDTCC` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `tipo`
+-- AUTO_INCREMENT for table `tipo`
 --
 ALTER TABLE `tipo`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT de tabela `usuario`
+-- AUTO_INCREMENT for table `usuarios`
 --
-ALTER TABLE `usuario`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `usuarios`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- Restrições para despejos de tabelas
+-- Constraints for dumped tables
 --
 
 --
--- Limitadores para a tabela `tcc`
+-- Constraints for table `tcc`
 --
 ALTER TABLE `tcc`
   ADD CONSTRAINT `fk_tcc_curso` FOREIGN KEY (`CURSO_IDCURSO`) REFERENCES `curso` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;

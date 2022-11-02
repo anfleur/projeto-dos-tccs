@@ -7,22 +7,21 @@
     $ID = $_REQUEST['ID'];
 
     // Gero a querie de consulta no banco de dados
-    $sql = "SELECT * FROM TCC WHERE ID = $ID";
+    $sql = "SELECT * FROM tcc WHERE ID = $ID";
 
     // Executar nossa querie de consulta ao banco de dados
     $resultado = $pdo->query($sql);
 
     // Testar a minha consulta de banco de dados
     if($resultado){
-        $result = array();
+        $dadosEixo = array();
         while($row = $resultado->fetch(PDO::FETCH_ASSOC)){
-            //$result = array_map('utf8_encode', $row);
-            $result = array_map(null, $row);
+            $dadosEixo = array_map('utf8_encode', $row);
         }
         $dados = array(
             'tipo' => 'success',
             'mensagem' => '',
-            'dados' => $result
+            'dados' => $dadosEixo
         );
     } else {
         $dados = array(
@@ -33,3 +32,4 @@
     }
 
     echo json_encode($dados);
+
