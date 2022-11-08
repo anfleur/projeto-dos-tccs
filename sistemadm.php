@@ -22,7 +22,7 @@
         <div id="my-nav" class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto ">
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="#"><i class="fa-solid fa-house"></i> Home</a>
+                    <a class="nav-link text-white" href="#"><i class="fa-solid fa-house"></i> Home </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-white" href="src/curso/visao/list-curso.html"><i class="fa-solid fa-folder-open"></i> Cursos </a>
@@ -44,6 +44,7 @@
         </div>
     </nav>
 
+    
     <div id="content" class="container mt-5">
         <div class="row mt-5">
             <div class="col-12 mt-5 text-center mt-5">
@@ -52,6 +53,37 @@
                 </h4>
             </div>
         </div>
+    <section id="content" class="py-5">
+
+        <div class="row row-cols-1 row-cols-md-4 g-4 " >
+    <?php
+
+    include('src/conexao/conn.php');
+
+    $sql = "SELECT * FROM tcc";
+
+    $resultado = $pdo->query($sql);
+
+    while($row = $resultado->fetch(PDO::FETCH_ASSOC)){
+    ?>
+    <div class="col-4 mb-4">
+        <div class="card h-100">
+        <div class="card-body">
+            <h5 class="card-title"><?php echo '<h2>'.$row['TITULO'].'</h2> <br />'; ?></h5>
+        
+            
+            <p class="card-text"><?php echo '<h3>' .$row['ANO'].'<br />'; ?></p>
+            
+        </div>
+        </div>
+    </div>
+    <?php } ?>
+    </div>
+    </div>
+
+    </div>
+</div>
+</section> 
     </div>
 
     <script src="js/jquery-3.6.0.js"></script>

@@ -16,7 +16,7 @@ while($resultado = $sql->fetch(PDO::FETCH_ASSOC)){
         // 1 = certo
         session_start();
         $_SESSION['LOGIN'] = $resultado['LOGIN'];
-        $_SESSION['TIPO'] = $resultado['TIPO'];
+        $_SESSION['TIPO'] = $resultado['TIPO_ID'];
 
         $dados = array(
             'tipo' => 'success',

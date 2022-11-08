@@ -29,7 +29,7 @@
                     ':b' => $requestData['EMAIL'],
                     ':c' => md5($requestData['SENHA']),
                     ':d' => $requestData['LOGIN'],
-                    ':e' => $requestData['TIPO_ID'],
+                    ':e' => $requestData['TIPO_ID']
                 ));
                 $dados = array(
                     "tipo" => 'success',
@@ -44,13 +44,14 @@
         } else {
             // Se minha variável operação estiver vazia então devo gerar os scripts de update
             try{
-                $stmt = $pdo->prepare('UPDATE usuario SET NOME = :a, EMAIL = :b, SENHA = :c, LOGIN = :d, TIPO_ID = :e , WHERE ID = :id');
+                $stmt = $pdo->prepare('UPDATE usuario SET NOME = :a, EMAIL = :b, SENHA = :c, LOGIN = :d, TIPO_ID = :e WHERE ID = :id');
                 $stmt->execute(array(
+                    ':id' => $ID,
                     ':a' => $requestData['NOME'],
                     ':b' => $requestData['EMAIL'],
                     ':c' => md5($requestData['SENHA']),
                     ':d' => $requestData['LOGIN'],
-                    ':e' => $requestData['TIPO_ID'],
+                    ':e' => $requestData['TIPO_ID']
                 ));
                 $dados = array(
                     "tipo" => 'success',

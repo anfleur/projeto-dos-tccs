@@ -26,6 +26,8 @@ $(document).ready(function() {
                         $('#LOGIN').attr('readonly', 'true')
                         $('#EMAIL').val(dado.dados.EMAIL)
                         $('#EMAIL').attr('readonly', 'true')
+                        $('#SENHA').val(dado.dados.SENHA)
+                        $('#SENHA').attr('readonly', 'true')
                         $('#NOME').val(dado.dados.NOME)
                         $('#NOME').attr('readonly', 'true')
                         $('#TIPO_ID').empty()

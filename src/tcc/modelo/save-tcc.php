@@ -60,15 +60,19 @@
                     if($operacao == 'insert'){
                         // Prepara o comando INSERT para ser executado
                         try{
-                            $stmt = $pdo->prepare('INSERT INTO tcc (TITULO, ANO, RESUMO, COORIENTADOR, ORIENTADOR, ARQUIVO, CURSO_ID) VALUES (:a, :b, :c, :d, :e, :f, :g)');
+                            $stmt = $pdo->prepare('INSERT INTO tcc (TITULO, ANO, RESUMO, AUTOR_1, AUTOR_2, AUTOR_3, AUTOR_4, COORIENTADOR, ORIENTADOR, ARQUIVO, CURSO_ID) VALUES (:a, :b, :c, :d, :e, :f, :g, :h, :i, :j, :k)');
                             $stmt->execute(array(
                                 ':a' => $requestData['TITULO'],
                                 ':b' => $requestData['ANO'],
                                 ':c' => $requestData['RESUMO'],
-                                ':d' => $requestData['COORIENTADOR'],
-                                ':e' => $requestData['ORIENTADOR'],
-                                ':f' => $novoNome,
-                                ':g' => $requestData['CURSO_ID']
+                                ':d' => $requestData['AUTOR_1'],
+                                ':e' => $requestData['AUTOR_2'],
+                                ':f' => $requestData['AUTOR_3'],
+                                ':g' => $requestData['AUTOR_4'],
+                                ':h' => $requestData['COORIENTADOR'],
+                                ':i' => $requestData['ORIENTADOR'],
+                                ':j' => $novoNome,
+                                ':k' => $requestData['CURSO_ID']
                             ));
 
                             $retorno = array(
@@ -84,16 +88,20 @@
                     } else {
                         // Se minha variável operação estiver vazia então devo gerar os scripts de update
                         try{
-                            $stmt = $pdo->prepare('UPDATE tcc SET TITULO = :a, ANO = :b, RESUMO = :c, COORIENTADOR = :d, ORIENTADOR = :e, ARQUIVO = :f, CURSO_ID = :g WHERE IDTRABALHO = :id');
+                            $stmt = $pdo->prepare('UPDATE tcc SET TITULO = :a, ANO = :b, RESUMO = :c, AUTOR_1 = :d, AUTOR_2 = :e, AUTOR_3 = :f, AUTOR_4 = :g,  COORIENTADOR = :h, ORIENTADOR = :i, ARQUIVO = :j, CURSO_ID = :k WHERE ID = :id');
                             $stmt->execute(array(
                                 ':id' => $ID,
                                 ':a' => $requestData['TITULO'],
                                 ':b' => $requestData['ANO'],
                                 ':c' => $requestData['RESUMO'],
-                                ':d' => $requestData['COORIENTADOR'],
-                                ':e' => $requestData['ORIENTADOR'],
-                                ':f' => $requestData['ARQUIVO'],
-                                ':g' => $requestData['CURSO_ID']
+                                ':d' => $requestData['AUTOR_1'],
+                                ':e' => $requestData['AUTOR_2'],
+                                ':f' => $requestData['AUTOR_3'],
+                                ':g' => $requestData['AUTOR_4'],
+                                ':h' => $requestData['COORIENTADOR'],
+                                ':i' => $requestData['ORIENTADOR'],
+                                ':j' => $requestData['ARQUIVO'],
+                                ':k' => $requestData['CURSO_ID']
 
                             ));
 
