@@ -5,12 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema para gerenciamento de rifas</title>
+    <title>Sistema para gerenciamento de Tccs</title>
     <link rel="shortcut icon" href="img/imagem.png" type="image/x-icon">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="libs/fontawesome/css/all.css">
     <link rel="stylesheet" href="libs/sweetAlert/dist/sweetalert2.css">
     <link rel="stylesheet" href="libs/DataTables/datatables.css">
+    <link rel="stylesheet" href="css/estilo.css">
 </head>
 
 <body>
@@ -32,6 +33,7 @@
         </div>
     </nav>
 
+    
     <div id="content" class="container mt-5">
         <div class="row mt-5">
             <div class="col-12 mt-5 text-center mt-5">
@@ -56,11 +58,9 @@
     <div class="col-4 mb-4">
         <div class="card h-100">
         <div class="card-body">
-            <h5 class="card-title"><?php echo '<h2>'.$row['TITULO'].'</h2> <br />'; ?></h5>
-        
-            
-            <p class="card-text"><?php echo '<h3>' .$row['ANO'].'<br />'; ?></p>
-            
+            <h5 class="card-title"><?php echo '<h2>'.$row['TITULO'].'</h2> <br/>'; ?></h5>    
+            <p class="card-text"><?php echo '<h3>' .$row['ANO'].'</h3>''<br/>'; ?></p>
+            <p class="card-text"><?php echo '<p>'.$row['RESUMO'].'</p>' '<br/>'; ?></p>    
         </div>
         </div>
     </div>
@@ -72,7 +72,6 @@
 </div>
 </section> 
     </div>
-
    
 
 
