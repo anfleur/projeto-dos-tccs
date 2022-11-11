@@ -2,7 +2,7 @@
 
     include('../../conexao/conn.php');
 
-    $sql = "SELECT * FROM tipo ORDER BY NOME DESC";
+    $sql = "SELECT * FROM TIPO ORDER BY NOME DESC";
 
     $resultado = $pdo->query($sql);
 

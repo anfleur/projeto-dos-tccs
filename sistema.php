@@ -35,16 +35,11 @@
 
     
     <div id="content" class="container mt-5">
-        <div class="row mt-5">
-            <div class="col-12 mt-5 text-center mt-5">
-                <h4 class="text-center text-dark">
-                    Bem vindo ao sistema de gerenciamento de rifas
-                </h4>
-            </div>
-        </div>
-    <section id="content" class="py-5">
+
+    <section id="content" class="mt-3 py-5">
 
         <div class="row row-cols-1 row-cols-md-4 g-4 " >
+
     <?php
 
     include('src/conexao/conn.php');
@@ -56,11 +51,15 @@
     while($row = $resultado->fetch(PDO::FETCH_ASSOC)){
     ?>
     <div class="col-4 mb-4">
-        <div class="card h-100">
+        <div class="card shadow-sm p-3 mb-5 bg-white rounded">
         <div class="card-body">
-            <h5 class="card-title"><?php echo '<h2>'.$row['TITULO'].'</h2> <br/>'; ?></h5>    
-            <p class="card-text"><?php echo '<h3>' .$row['ANO'].'</h3>''<br/>'; ?></p>
-            <p class="card-text"><?php echo '<p>'.$row['RESUMO'].'</p>' '<br/>'; ?></p>    
+        <h5 class="card-header text-white " style="background-color: #C21010;" ><?php echo $row['TITULO']. ", " . $row['ANO'] . '<br />'; ?></h5>
+        <p class="card-text text-left mt-3 mb-4"><?php echo "Autores: " .$row['AUTOR_1'] .", " .$row['AUTOR_2'] . '<br/>'; ?></p>
+        <h5 class="card-text text-left"> <?php echo $row['RESUMO'].'<br />'; ?></h5> 
+
+        <button class="btn btn-block btn-dark btn-download">
+            Baixar
+        </button>
         </div>
         </div>
     </div>
@@ -73,11 +72,30 @@
 </section> 
     </div>
    
+    <div id="modal-download" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="my-modal-title">Title</h5>
+                <button class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Content</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-success btn-download-tcc"><i class="fas fa-save"></i> Download </button>
+            </div>
+        </div>
+    </div>
+</div>
 
 
     <script src="js/jquery-3.6.0.js"></script>
     <script src="js/bootstrap.js"></script>
     <script src="js/menu.js"></script>
+    <script src="src/tcc/controle/principal.js"></script>
     <script src="libs/fontawesome/js/all.js"></script>
     <script src="libs/DataTables/datatables.js"></script>
     <script src="libs/sweetAlert/dist/sweetalert2.all.js"></script>

@@ -5,7 +5,7 @@ $(document).ready(function() {
         $('.modal-title').empty()
 
 
-        $('.modal-title').append('Adicionar novo vendedor')
+        $('.modal-title').append('Adicionar novo Trabalho de Conclusão de Curso')
 
         $('.modal-body').load('src/tcc/visao/form-tcc.html', function() {
             // Criar um ajax para buscar todos os tipos de vendedores possiveis
@@ -29,8 +29,4 @@ $(document).ready(function() {
         $('#modal-tcc').modal('show')
     })
 
-    $('.close, #close').click(function(e) {
-        e.preventDefault()
-        $('#modal-tcc').modal('hide')
-    })
 })

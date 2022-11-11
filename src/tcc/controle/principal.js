@@ -1,10 +1,11 @@
 $(document).ready(function() {
 
-    $('#table-tcc').on('click', 'button.btn-view', function(e) {
+    $('.btn-download').click(function(e) {
 
         e.preventDefault()
 
         // Alterar as informações do modal para apresentação dos dados
+        $('#modal-download').modal('show')
 
         $('.modal-title').empty()
         $('.modal-body').empty()
@@ -69,5 +70,10 @@ $(document).ready(function() {
             }
         })
 
+    })
+
+    $('.close, #close').click(function(e) {
+        e.preventDefault()
+        $('#modal-download').modal('hide')
     })
 })

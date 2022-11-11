@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    $('#eixo').on('click', 'button.btn-delete', function(e) {
+    $('#table-eixo').on('click', 'button.btn-delete', function(e) {
 
         e.preventDefault()
 
@@ -30,7 +30,7 @@ $(document).ready(function() {
                             confirmButtonText: 'OK'
                         })
 
-                        $('#eixo').DataTable().ajax.reload()
+                        $('#table-eixo').DataTable().ajax.reload()
                     }
                 })
             }

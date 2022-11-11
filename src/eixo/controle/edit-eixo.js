@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    $('#eixo').on('click', 'button.btn-edit', function(e) {
+    $('#table-eixo').on('click', 'button.btn-edit', function(e) {
 
         e.preventDefault()
 
