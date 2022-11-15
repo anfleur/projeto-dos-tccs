@@ -5,47 +5,46 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> TCC </title>
-    <link rel="shortcut icon" href="img/img4.png" type="image/x-icon">
+    <title> System TCC </title>
+    <link rel="shortcut icon" href="img/logo-3.png" type="image/x-icon">
     <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="libs/fontawesome/css/all.css">
     <link rel="stylesheet" href="libs/sweetAlert/dist/sweetalert2.css">
     <link rel="stylesheet" href="libs/DataTables/datatables.css">
-    
     <link rel="stylesheet" href="libs/sweetAlert/dist/sweetalert2.css">
 </head>
 
-<body>
+<body class="font-principal">
 
-    <div class="container mt-2">
-        <div class="d-flex justify-content-center">
-            <div class="card mt-5 mb-5  mx-5 border-info" style="width: 20rem;">
-                <img src="img/img4.png" class="card-img">
-                <div class="card-body">
-                    <h3 class="card-title text-center text-black">Login</h3>
 
-                    <form id="form-login" class="mt-5">
+<div class="container mt-2">
+    <div class="d-flex justify-content-center vertical-center">
+        <div class="card mt-5 border-0 bg-white" style="width: 20rem;">
+            <div class="card-body">
+                <img class="card-img" src="img/img4.png" alt="">
+                <form id="form-login">
+                       <div class="mb-3">
+                        <label class="form-label">Login:</label>
+                        <input type="LOGIN" name="LOGIN" class="form-control" id="LOGIN" placeholder="Digite seu usuário...">
+                    </div>
 
-                        <div class="mb-3">
-                            <label class="form-label">Login</label>
-                            <input type="LOGIN" name="LOGIN" class="form-control" id="LOGIN" placeholder="Digite seu usuário...">
-                        </div>
+                    <div class="mb-3">
+                        <label class="form-label">Senha:</label>
+                        <input type="password" class="form-control" id="SENHA" name="SENHA" placeholder="Digite sua senha..." >
+                    </div>
 
-                        <div class="mb-3">
-                            <label class="form-label">Senha</label>
-                            <input type="password" class="form-control" id="SENHA" name="SENHA" placeholder="Digite sua senha..." >
-                        </div>
+                    <a class="btn btn-danger btn-login btn-block mt-2" style="height: 40px;" tabindex="-1" role="button">Entrar</a>
 
-                        <button class="form-control btn btn-danger text-light btn-sm btn-block"><a class="link-light text-light btn-login">Entrar</a></button>
+                    <!-- <button type="submit" class="btn btn-primary text-light"><a href="cadastro.html" class="link-light text-light">Cadastrar</a></button> -->
 
-                        <!-- <button type="submit" class="btn btn-primary text-light"><a href="cadastro.html" class="link-light text-light">Cadastrar</a></button> -->
-
-                    </form>
-                </div>
+                </form>
             </div>
         </div>
     </div>
 </div>
+</div>
+
 
 
 <script src="js/jquery-3.6.0.js"></script>

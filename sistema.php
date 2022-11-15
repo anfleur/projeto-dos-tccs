@@ -5,16 +5,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema para gerenciamento de Tccs</title>
-    <link rel="shortcut icon" href="img/imagem.png" type="image/x-icon">
+    <title>System TCC</title>
+    <link rel="shortcut icon" href="img/logo-3.png" type="image/x-icon">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="libs/fontawesome/css/all.css">
     <link rel="stylesheet" href="libs/sweetAlert/dist/sweetalert2.css">
     <link rel="stylesheet" href="libs/DataTables/datatables.css">
-    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="css/sistema.css">
 </head>
 
-<body>
+<body class="font-principal">
 
     <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow" style="background-color: #C21010;">
         <button class="navbar-toggler" data-target="#my-nav" data-toggle="collapse" aria-controls="my-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -51,19 +51,13 @@
     while($row = $resultado->fetch(PDO::FETCH_ASSOC)){
     ?>
     <div class="col-4 mb-4">
-        <div class="card shadow-sm p-3 mb-5 bg-white rounded h-100">
-        <div class="card-body">
-        <h5 class="card-header text-white " style="background-color: #C21010;" ><?php echo $row['TITULO']. ", " . $row['ANO'] . '<br />'; ?></h5>
-        <p class="card-text text-left mt-3 mb-4"><?php echo "Autores: " .$row['AUTOR_1'] .", " .$row['AUTOR_2'] . '<br/>'; ?></p>
-        <h5 class="card-text text-left"> <?php echo $row['RESUMO'].'<br />'; ?></h5> 
-
-        
+      <div class="card shadow-sm p-3 mb-5 bg-white rounded h-100">
+        <div class="card-body roun">
+            <h5 class="card-header text-white " style="background-color: #C21010;" ><?php echo $row['TITULO']. ", " . $row['ANO'] . '<br />'; ?></h5>
+            <p class="card-text text-left mt-3 mb-4"><?php echo "Autores: " .$row['AUTOR_1'] .", " .$row['AUTOR_2'] . '<br/>'; ?></p>
+            <h5 class="card-text text-left"> <?php echo $row['RESUMO'].'<br />'; ?></h5> 
         </div>
-        <div class="card-footer">
-        <button class="btn btn-block btn-dark btn-download">
-        <a href='src/modelo/visualizar_arquivo.php?id=".$ID->ID."' target='_blank'>Baixar</a>
-        </button>
-        </div>
+            <a href="#" class="btn btn-lg text-white" tabindex="-1" role="button" style="background-color: #C21010;" >Baixar</a>
         </div>
     </div>
     <?php } ?>

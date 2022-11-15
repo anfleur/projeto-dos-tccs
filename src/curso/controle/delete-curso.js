@@ -7,7 +7,7 @@ $(document).ready(function() {
         let ID = `ID=${$(this).attr('id')}`
 
         Swal.fire({
-            title: 'Sistema Gerenciador de TCCs',
+            title: 'System TCC',
             text: "Deseja realmente excluir esse registro?",
             icon: 'question',
             showCancelButton: true,
@@ -24,7 +24,7 @@ $(document).ready(function() {
                     url: 'src/curso/modelo/delete-curso.php',
                     success: function(dados) {
                         Swal.fire({
-                            title: 'Sistema Gerenciador de TCCs',
+                            title: 'System TCC',
                             text: dados.mensagem,
                             icon: dados.tipo,
                             confirmButtonText: 'OK'

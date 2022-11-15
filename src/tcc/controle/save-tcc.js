@@ -17,7 +17,7 @@ $(document).ready(function() {
             processData: false,
             success: function(dados) {
                 Swal.fire({
-                    title: 'Sistema Gerenciador de TCCs',
+                    title: 'System TCC',
                     text: dados.mensagem,
                     icon: dados.tipo,
                     confirmButtonText: 'OK'

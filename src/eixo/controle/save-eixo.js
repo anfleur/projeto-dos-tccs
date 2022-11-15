@@ -15,7 +15,7 @@ $(document).ready(function() {
             url: 'src/eixo/modelo/save-eixo.php',
             success: function(dados) {
                 Swal.fire({
-                    title: 'Sistema Gerenciador de TCCs',
+                    title: 'System TCC',
                     text: dados.mensagem,
                     icon: dados.tipo,
                     confirmButtonText: 'OK'

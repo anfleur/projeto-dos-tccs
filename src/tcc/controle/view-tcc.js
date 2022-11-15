@@ -60,7 +60,7 @@ $(document).ready(function() {
                     $('#modal-tcc').modal('show')
                 } else {
                     Swal.fire({ // Inicialização do SweetAlert
-                        title: 'Sistema Gerenciador de TCCs', // Título da janela SweetAler
+                        title: 'System TCC', // Título da janela SweetAler
                         text: dado.mensagem, // Mensagem retornada do microserviço
                         type: dado.tipo, // Tipo de retorno [success, info ou error]
                         confirmButtonText: 'OK'
