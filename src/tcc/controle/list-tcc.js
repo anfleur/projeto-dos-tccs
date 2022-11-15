@@ -25,7 +25,6 @@ $(document).ready(function() {
                 "render": function(data, type, row, meta) {
                     return `
                     <button id="${data}" class="btn btn-info btn-sm btn-view"><i class="fas fa-eye"></i></button>
-                    <button id="${data}" class="btn btn-danger btn-sm btn-delete"><i class="fas fa-trash-alt"></i></button>
                     `
                 }
             }

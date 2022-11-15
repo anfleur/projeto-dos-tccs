@@ -51,14 +51,17 @@
     while($row = $resultado->fetch(PDO::FETCH_ASSOC)){
     ?>
     <div class="col-4 mb-4">
-        <div class="card shadow-sm p-3 mb-5 bg-white rounded">
+        <div class="card shadow-sm p-3 mb-5 bg-white rounded h-100">
         <div class="card-body">
         <h5 class="card-header text-white " style="background-color: #C21010;" ><?php echo $row['TITULO']. ", " . $row['ANO'] . '<br />'; ?></h5>
         <p class="card-text text-left mt-3 mb-4"><?php echo "Autores: " .$row['AUTOR_1'] .", " .$row['AUTOR_2'] . '<br/>'; ?></p>
         <h5 class="card-text text-left"> <?php echo $row['RESUMO'].'<br />'; ?></h5> 
 
+        
+        </div>
+        <div class="card-footer">
         <button class="btn btn-block btn-dark btn-download">
-            Baixar
+        <a href='src/modelo/visualizar_arquivo.php?id=".$ID->ID."' target='_blank'>Baixar</a>
         </button>
         </div>
         </div>
@@ -71,31 +74,10 @@
 </div>
 </section> 
     </div>
-   
-    <div id="modal-download" class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="my-modal-title">Title</h5>
-                <button class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p>Content</p>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-success btn-download-tcc"><i class="fas fa-save"></i> Download </button>
-            </div>
-        </div>
-    </div>
-</div>
-
 
     <script src="js/jquery-3.6.0.js"></script>
     <script src="js/bootstrap.js"></script>
     <script src="js/menu.js"></script>
-    <script src="src/tcc/controle/principal.js"></script>
     <script src="libs/fontawesome/js/all.js"></script>
     <script src="libs/DataTables/datatables.js"></script>
     <script src="libs/sweetAlert/dist/sweetalert2.all.js"></script>

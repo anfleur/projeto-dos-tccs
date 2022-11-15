@@ -1,0 +1,60 @@
+<form id="form-tcc" enctype="multipart/form-data">
+    <div class="form-group row">
+        <div class="col-12 col-md-6">
+            <label>Título do TCC </label>
+            <input type="text" name="TITULO" id="TITULO" class="form-control">
+        </div>
+        <div class="col-12 col-md-6">
+            <label> Respectivo Curso: </label>
+            <select name="CURSO_ID" id="CURSO_ID" class="form-control">
+            <option value=""> Selecione o curso: </option>
+            </select>
+        </div>      
+    </div>
+    <div class="form-group">
+        <label>Resumo</label>
+        <textarea id="RESUMO" class="form-control" name="RESUMO" rows="3"></textarea>
+    </div>
+    <div class="form-group row">
+        <div class="col-12 col-md-6">
+            <label>Autor 1:</label>
+            <input type="text" name="AUTOR_1" id="AUTOR_1" class="form-control">
+        </div>
+        <div class="col-12 col-md-6">
+            <label>Autor 2:</label>
+            <input type="text" name="AUTOR_2" id="AUTOR_2" class="form-control">
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-12 col-md-6">
+            <label>Autor 3:</label>
+            <input type="text" name="AUTOR_3" id="AUTOR_3" class="form-control">
+        </div>
+        <div class="col-12 col-md-6">
+            <label>Autor 4:</label>
+            <input type="text" name="AUTOR_4" id="AUTOR_4" class="form-control">
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-12 col-md-6">
+            <label>Orientador</label>
+            <input type="text" name="ORIENTADOR" id="ORIENTADOR" class="form-control">
+        </div>
+        <div class="col-12 col-md-6">
+            <label>Co-orientador</label>
+            <input type="text" name="COORIENTADOR" id="COORIENTADOR" class="form-control">
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-12 col-md-4">
+            <label>Ano</label>
+            <input type="number" name="ANO" id="ANO" class="form-control">
+        </div>
+        <div class="col-12 col-md-8">
+            <label>Arquivo</label>
+            <input type="file" name="ARQUIVO" id="ARQUIVO" class="form-control">
+        </div>
+    </div>
+    <input type="hidden" name="ID" id="ID">
+    <input type="hidden" name="operacao" id="operacao" value="insert">
+</form>
