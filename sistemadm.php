@@ -46,45 +46,39 @@
 
     
     <div id="content" class="container mt-5">
-        <div class="row mt-5">
-            <div class="col-12 mt-5 text-center mt-5">
-                <h4 class="text-center text-dark">
-                    Bem vindo ao sistema de gerenciamento de rifas
-                </h4>
-            </div>
-        </div>
-    <section id="content" class="py-5">
 
-        <div class="row row-cols-1 row-cols-md-4 g-4 " >
-    <?php
+<section id="content" class="mt-3 py-5">
 
-    include('src/conexao/conn.php');
+    <div class="row row-cols-1 row-cols-md-4 g-4 " >
 
-    $sql = "SELECT * FROM tcc";
+<?php
 
-    $resultado = $pdo->query($sql);
+include('src/conexao/conn.php');
 
-    while($row = $resultado->fetch(PDO::FETCH_ASSOC)){
-    ?>
-    <div class="col-4 mb-4">
-        <div class="card h-100">
-        <div class="card-body">
-            <h5 class="card-title"><?php echo '<h2>'.$row['TITULO'].'</h2> <br />'; ?></h5>
-        
-            
-            <p class="card-text"><?php echo '<h3>' .$row['ANO'].'<br />'; ?></p>
-            
-        </div>
-        </div>
+$sql = "SELECT * FROM tcc";
+
+$resultado = $pdo->query($sql);
+
+while($row = $resultado->fetch(PDO::FETCH_ASSOC)){
+?>
+<div class="col-4 mb-4">
+  <div class="card shadow-sm p-3 mb-5 bg-white rounded h-100">
+    <div class="card-body roun">
+        <h5 class="card-header text-white " style="background-color: #C21010;" ><?php echo $row['TITULO']. ", " . $row['ANO'] . '<br />'; ?></h5>
+        <p class="card-text text-left mt-3 mb-4"><?php echo "Autores: " .$row['AUTOR_1'] .", " .$row['AUTOR_2'] . '<br/>'; ?></p>
+        <h5 class="card-text text-left"> <?php echo $row['RESUMO'].'<br />'; ?></h5> 
     </div>
-    <?php } ?>
-    </div>
-    </div>
-
+        <a href="src/tcc/modelo/arquivos/<?php echo $row['ARQUIVO']; ?>" target="_BLANK" class="btn btn-lg text-white" tabindex="-1" role="button" style="background-color: #C21010;" > Baixar</a>
     </div>
 </div>
+<?php } ?>
+</div>
+</div>
+
+</div>
+</div>
 </section> 
-    </div>
+</div>
 
     <script src="js/jquery-3.6.0.js"></script>
     <script src="js/bootstrap.js"></script>

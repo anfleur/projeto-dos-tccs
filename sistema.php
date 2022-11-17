@@ -57,7 +57,7 @@
             <p class="card-text text-left mt-3 mb-4"><?php echo "Autores: " .$row['AUTOR_1'] .", " .$row['AUTOR_2'] . '<br/>'; ?></p>
             <h5 class="card-text text-left"> <?php echo $row['RESUMO'].'<br />'; ?></h5> 
         </div>
-            <a href="#" class="btn btn-lg text-white" tabindex="-1" role="button" style="background-color: #C21010;" >Baixar</a>
+            <a href="src/tcc/modelo/arquivos/<?php echo $row['ARQUIVO']; ?>" target="_BLANK" class="btn btn-lg text-white" tabindex="-1" role="button" style="background-color: #C21010;" > Baixar</a>
         </div>
     </div>
     <?php } ?>

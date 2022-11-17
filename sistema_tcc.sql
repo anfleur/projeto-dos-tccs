@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 08-Nov-2022 às 01:00
--- Versão do servidor: 10.4.11-MariaDB
--- versão do PHP: 7.2.26
+-- Tempo de geração: 17-Nov-2022 às 13:22
+-- Versão do servidor: 10.4.20-MariaDB
+-- versão do PHP: 8.0.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -72,6 +71,10 @@ CREATE TABLE `tcc` (
   `TITULO` varchar(200) NOT NULL,
   `ANO` int(11) NOT NULL,
   `RESUMO` longtext NOT NULL,
+  `AUTOR_1` varchar(200) DEFAULT NULL,
+  `AUTOR_2` varchar(200) DEFAULT NULL,
+  `AUTOR_3` varchar(200) DEFAULT NULL,
+  `AUTOR_4` varchar(200) DEFAULT NULL,
   `COORIENTADOR` varchar(200) NOT NULL,
   `ORIENTADOR` varchar(200) NOT NULL,
   `ARQUIVO` varchar(255) NOT NULL,
@@ -82,8 +85,9 @@ CREATE TABLE `tcc` (
 -- Extraindo dados da tabela `tcc`
 --
 
-INSERT INTO `tcc` (`ID`, `TITULO`, `ANO`, `RESUMO`, `COORIENTADOR`, `ORIENTADOR`, `ARQUIVO`, `CURSO_ID`) VALUES
-(22, 'Informatica', 2020, ' hjhgjhjjj', 'Thiago Seti', 'Adriano Castro', '1667068653635d72edd74c9.pdf', 1);
+INSERT INTO `tcc` (`ID`, `TITULO`, `ANO`, `RESUMO`, `AUTOR_1`, `AUTOR_2`, `AUTOR_3`, `AUTOR_4`, `COORIENTADOR`, `ORIENTADOR`, `ARQUIVO`, `CURSO_ID`) VALUES
+(22, 'Informatica', 2020, ' hjhgjhjjj', NULL, NULL, NULL, NULL, 'Thiago Seti', 'Adriano Castro', '1667068653635d72edd74c9.pdf', 1),
+(23, 'Teste de cadastro', 2020, 'RESUMO DO TCC', 'ANNA', 'DEVERSON', '', '', 'THIAGO', 'ADRIANO', '166868763363762711aeef3.pdf', 2);
 
 -- --------------------------------------------------------
 
@@ -184,7 +188,7 @@ ALTER TABLE `eixo`
 -- AUTO_INCREMENT de tabela `tcc`
 --
 ALTER TABLE `tcc`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT de tabela `tipo`
