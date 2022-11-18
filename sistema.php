@@ -77,6 +77,8 @@
     <script src="libs/fontawesome/js/all.js"></script>
     <script src="libs/DataTables/datatables.js"></script>
     <script src="libs/sweetAlert/dist/sweetalert2.all.js"></script>
+    <script src="src/usuario/controle/validate-usuario.js"></script>
+    <script src="src/usuario/controle/logout-usuario.js"></script>
    
 </body>
 

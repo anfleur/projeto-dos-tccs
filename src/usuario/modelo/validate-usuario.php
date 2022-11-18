@@ -17,7 +17,7 @@ else {
 
     $dados = array(
         'tipo' => 'success',
-        'mensagem' => 'Seja bem-vinde '.$_SESSION['LOGIN']
+        'mensagem' => 'Seja bem-vindo '.$_SESSION['LOGIN']
     );
 
 }

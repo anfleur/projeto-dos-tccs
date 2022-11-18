@@ -10,12 +10,12 @@ $(document).ready(function() {
 
                 if(dados.tipo == 'error'){
 
-                    $(location).attr('href', 'index.html')
+                    $(location).attr('href', 'index.php')
                 }
 
                 else {
                 Swal.fire({
-                    title: 'TCC',
+                    title: 'System TCC',
                     text: dados.mensagem,
                     icon: dados.tipo,
                     confirmButtonText: 'OK'
