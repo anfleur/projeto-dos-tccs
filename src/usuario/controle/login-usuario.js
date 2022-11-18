@@ -14,13 +14,12 @@ $(document).ready(function() {
             success: function(dados) {
 
                 if(dados.tipo == 'success'){
-
-                    $(location).attr('href', 'sistema.html')
+                        $(location).attr('href', 'sistema.php')
                 }
 
                 else {
                 Swal.fire({
-                    title: 'TCC',
+                    title: 'System TCC',
                     text: dados.mensagem,
                     icon: dados.tipo,
                     confirmButtonText: 'OK'

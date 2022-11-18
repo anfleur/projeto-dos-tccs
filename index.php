@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="libs/sweetAlert/dist/sweetalert2.css">
     <link rel="stylesheet" href="libs/DataTables/datatables.css">
     <link rel="stylesheet" href="libs/sweetAlert/dist/sweetalert2.css">
+    <link rel="manifest" href="manifest.json">
 </head>
 
 <body class="font-principal">
@@ -49,6 +50,7 @@
 
 <script src="js/jquery-3.6.0.js"></script>
 <script src="js/bootstrap.js"></script>
+<script src="js/script.js"></script>
 <script src="libs/FontAwesome/js/all.js"></script>
 <script src="libs/sweetAlert/dist/sweetalert2.all.js"></script>
 <script src="src/usuario/controle/login-usuario.js"></script> 
