@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 17-Nov-2022 às 13:22
+-- Tempo de geração: 22-Nov-2022 às 16:26
 -- Versão do servidor: 10.4.20-MariaDB
 -- versão do PHP: 8.0.8
 
@@ -20,6 +20,29 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `sistema_tcc`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `administrador`
+--
+
+CREATE TABLE `administrador` (
+  `ID` int(11) NOT NULL,
+  `NOME` varchar(100) NOT NULL,
+  `EMAIL` varchar(100) NOT NULL,
+  `SENHA` varchar(225) NOT NULL,
+  `LOGIN` varchar(50) NOT NULL,
+  `TIPO_ID` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `administrador`
+--
+
+INSERT INTO `administrador` (`ID`, `NOME`, `EMAIL`, `SENHA`, `LOGIN`, `TIPO_ID`) VALUES
+(1, 'adm', 'adm@gmail.com', '202cb962ac59075b964b07152d234b70', 'adm', 1),
+(2, 'Marli', 'marli@gmail.com', '202cb962ac59075b964b07152d234b70', 'Marli', 1);
 
 -- --------------------------------------------------------
 
@@ -105,7 +128,7 @@ CREATE TABLE `tipo` (
 --
 
 INSERT INTO `tipo` (`ID`, `NOME`) VALUES
-(1, 'Administrador'),
+(1, 'Admin'),
 (2, 'Aluno'),
 (3, 'Professor');
 
@@ -129,11 +152,19 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`ID`, `NOME`, `EMAIL`, `SENHA`, `LOGIN`, `TIPO_ID`) VALUES
-(17, 'Ana Beatriz', 'ana.zgermano2005@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', 'ana', 3);
+(17, 'Ana Beatriz', 'ana.zgermano2005@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', 'ana', 3),
+(18, 'bia', 'bia@gmail.com', '202cb962ac59075b964b07152d234b70', 'biA', 3),
+(19, 'aaa', 'bia@gmail.com', '202cb962ac59075b964b07152d234b70', 'aa', 3);
 
 --
 -- Índices para tabelas despejadas
 --
+
+--
+-- Índices para tabela `administrador`
+--
+ALTER TABLE `administrador`
+  ADD PRIMARY KEY (`ID`);
 
 --
 -- Índices para tabela `curso`
@@ -173,6 +204,12 @@ ALTER TABLE `usuario`
 --
 
 --
+-- AUTO_INCREMENT de tabela `administrador`
+--
+ALTER TABLE `administrador`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT de tabela `curso`
 --
 ALTER TABLE `curso`
@@ -200,7 +237,7 @@ ALTER TABLE `tipo`
 -- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- Restrições para despejos de tabelas

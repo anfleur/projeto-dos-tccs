@@ -9,21 +9,30 @@
   text-align: center;
 }
 
-#divBusca{
-  background-color:#2F4F4F;
-  border:solid 1px;
-  border-radius:15px;
-  width:300px;
+#searchbar{
+  margin-left: 15%;
+  padding:15px;
+  border-radius: 10px;
 }
 
-#txtBusca{
-  float:left;
-  background-color:transparent;
-  padding-left:5px;
-  font-style:italic;
-  font-size:18px;
-  border:none;
-  height:32px;
-  width:260px;
+input[type=text] {
+   width: 30%;
+   -webkit-transition: width 0.15s ease-in-out;
+   transition: width 0.15s ease-in-out;
 }
+
+/* When the input field gets focus,
+     change its width to 100% */
+input[type=text]:focus {
+  width: 70%;
+}
+
+#list{
+ font-size:  1.5em;
+ margin-left: 90px;
+}
+
+.animals{
+display: list-item;    
+} 
 /* https://codepen.io/nailaahmad/pen/LGRxWJ */
