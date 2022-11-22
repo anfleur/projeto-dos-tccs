@@ -11,7 +11,7 @@ $(document).ready(function() {
                 if(dados.tipo == 'error'){
 
                     $(location).attr('href', 'index.php')
-                }
+                } 
 
                 else {
                 Swal.fire({

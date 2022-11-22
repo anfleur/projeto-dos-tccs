@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="libs/sweetAlert/dist/sweetalert2.css">
     <link rel="stylesheet" href="libs/DataTables/datatables.css">
     <link rel="stylesheet" href="css/sistema.css">
-    <link rel="manifest" href="manifest.json">
 </head>
 
 <body class="font-principal">
@@ -73,7 +72,6 @@
     <script src="js/jquery-3.6.0.js"></script>
     <script src="js/bootstrap.js"></script>
     <script src="js/menu.js"></script>
-    <script src="js/script.js"></script>
     <script src="libs/fontawesome/js/all.js"></script>
     <script src="libs/DataTables/datatables.js"></script>
     <script src="libs/sweetAlert/dist/sweetalert2.all.js"></script>
