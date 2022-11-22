@@ -36,9 +36,6 @@
                     </div>
 
                     <a class="btn btn-danger btn-login btn-block mt-2" style="height: 40px;" tabindex="-1" role="button">Entrar</a>
-
-                    <!-- <button type="submit" class="btn btn-primary text-light"><a href="cadastro.html" class="link-light text-light">Cadastrar</a></button> -->
-
                 </form>
             </div>
         </div>
@@ -46,16 +43,13 @@
 </div>
 </div>
 
-
-
 <script src="js/jquery-3.6.0.js"></script>
 <script src="js/bootstrap.js"></script>
 <script src="libs/FontAwesome/js/all.js"></script>
 <script src="libs/sweetAlert/dist/sweetalert2.all.js"></script>
 <script src="src/usuario/controle/login-usuario.js"></script> 
 
-
-
 </body>
 
 </html>
+
