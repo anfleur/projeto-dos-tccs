@@ -38,7 +38,10 @@
     
     <div id="content" class="container mt-5">
 
-    
+    <form action="sistema.php" method="post" class="input-group">
+        <input type="text" class="form-control form-search rounded" placeholder="Pesquisa" name="pesquisa" aria-describedby="search-addon" />
+        <button type="submit" id="btn-pesquisar" value="Pesquisar" name="PesquisarTCC" class="btn btn-outline-primary">Pesquisar</button>
+    </form>
 
 
 
@@ -90,9 +93,9 @@
     <script src="libs/fontawesome/js/all.js"></script>
     <script src="libs/DataTables/datatables.js"></script>
     <script src="libs/sweetAlert/dist/sweetalert2.all.js"></script>
-    <script src="src/usuario/controle/validate-usuario.js"></script>
-    <script src="src/usuario/controle/logout-usuario.js"></script>
-    <script src="js/pesquisa.js"></script>
+    <!-- <script src="src/usuario/controle/validate-usuario.js"></script>
+    <script src="src/usuario/controle/logout-usuario.js"></script> -->
+    <script src="src/pesquisa/search.js"></script>
    
 </body>
 
