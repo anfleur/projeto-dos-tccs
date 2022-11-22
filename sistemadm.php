@@ -40,7 +40,7 @@
                     <a class="nav-link text-white" href="src/usuario/visao/list-usuario.html"><i class="fa-solid fa-receipt"></i> Usuarios </a>
                 </li>
             </ul>
-            <a class="text-white" id="logout" href="index.html"><i class="fa-solid fa-right-from-bracket"></i> Sair do Sistema </a>
+            <a class="text-white" id="logout" href="index.php"><i class="fa-solid fa-right-from-bracket"></i> Sair do Sistema </a>
         </div>
     </nav>
 
@@ -86,8 +86,8 @@ while($row = $resultado->fetch(PDO::FETCH_ASSOC)){
     <script src="libs/fontawesome/js/all.js"></script>
     <script src="libs/DataTables/datatables.js"></script>
     <script src="libs/sweetAlert/dist/sweetalert2.all.js"></script>
-    <script src="src/usuario/controle/validate-usuario.js"></script>
-    <script src="src/usuario/controle/logout-usuario.js"></script>
+    <script src="src/usuario/controle/validate-adm.js"></script>
+    <script src="src/usuario/controle/logout-adm.js"></script>
    
 </body>
 

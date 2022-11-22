@@ -33,8 +33,21 @@
         </div>
     </nav>
 
+    <br>
+    <br>
     
     <div id="content" class="container mt-5">
+
+    <div id="inputBusca">
+  <input type="text" id="txtBusca" placeholder="Buscar..."/>
+  <br> 
+</div>
+<div id= "btnBusca">
+  <a class="btn btn-danger btn-login btn-block mt-2" style="height: 40px;" tabindex="-1" role="button"> Pesquisar</a>
+</div>
+
+
+
 
     <section id="content" class="mt-3 py-5">
 

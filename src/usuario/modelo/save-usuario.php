@@ -22,7 +22,9 @@
         if($operacao == 'insert'){
             // Prepara o comando INSERT para ser executado
             try{
-                $stmt = $pdo->prepare('INSERT INTO usuario (NOME, EMAIL, SENHA, LOGIN, TIPO_ID) VALUES (:a, :b, :c, :d, :e)');
+
+                if($requestData['TIPO_ID'] == 1){
+                    $stmt = $pdo->prepare('INSERT INTO administrador (NOME, EMAIL, SENHA, LOGIN, TIPO_ID) VALUES (:a, :b, :c, :d, :e)');
                 $stmt->execute(array(
                     //':a' => utf8_decode($requestData['NOME'])
                     ':a' => $requestData['NOME'],
@@ -31,10 +33,31 @@
                     ':d' => $requestData['LOGIN'],
                     ':e' => $requestData['TIPO_ID']
                 ));
+
                 $dados = array(
                     "tipo" => 'success',
-                    "mensagem" => 'Registro salvo com sucesso.'
+                    "mensagem" => 'Registro do administrador com sucesso.'
                 );
+
+
+                }else{
+                    $stmt = $pdo->prepare('INSERT INTO usuario (NOME, EMAIL, SENHA, LOGIN, TIPO_ID) VALUES (:a, :b, :c, :d, :e)');
+                    $stmt->execute(array(
+                    //':a' => utf8_decode($requestData['NOME'])
+                    ':a' => $requestData['NOME'],
+                    ':b' => $requestData['EMAIL'],
+                    ':c' => md5($requestData['SENHA']),
+                    ':d' => $requestData['LOGIN'],
+                    ':e' => $requestData['TIPO_ID']
+                ));
+
+                $dados = array(
+                    "tipo" => 'success',
+                    "mensagem" => 'Registro do usuario foi salvo com sucesso.'
+                );
+
+                }
+
             } catch(PDOException $e) {
                 $dados = array(
                     "tipo" => 'error',

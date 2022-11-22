@@ -105,7 +105,7 @@ CREATE TABLE `tipo` (
 --
 
 INSERT INTO `tipo` (`ID`, `NOME`) VALUES
-(1, 'Admin'),
+(1, 'Administrador'),
 (2, 'Aluno'),
 (3, 'Professor');
 
