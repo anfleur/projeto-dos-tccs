@@ -4,7 +4,7 @@ $(document).ready(function() {
 
         e.preventDefault()
 
-        // Alterar as informações do modal para apresentação dos dados
+        // Altera as informações do modal para apresentação dos dados
 
         $('.modal-title').empty()
         $('.modal-body').empty()
@@ -28,7 +28,7 @@ $(document).ready(function() {
 
                         var EIXO_ID = dado.dados.EIXO_ID
 
-                        //Consultar todos os tipos cadastrados no banco de daods
+                        //Consulta todos os tipos cadastrados no banco de daods
                         $.ajax({
                             dataType: 'json',
                             type: 'POST',
@@ -53,7 +53,7 @@ $(document).ready(function() {
                     Swal.fire({ // Inicialização do SweetAlert
                         title: 'System TCC', // Título da janela SweetAlert
                         text: dado.mensagem, // Mensagem retornada do microserviço
-                        type: dado.tipo, // vendedor de retorno [success, info ou error]
+                        type: dado.tipo, // Retorna sendo success, info ou error
                         confirmButtonText: 'OK'
                     })
                 }

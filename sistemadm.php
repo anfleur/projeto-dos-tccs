@@ -40,7 +40,7 @@
                     <a class="nav-link text-white" href="src/usuario/visao/list-usuario.html"><i class="fa-solid fa-receipt"></i> Usuarios </a>
                 </li>
             </ul>
-            <a class="text-white" id="logout" href="index.php"><i class="fa-solid fa-right-from-bracket"></i> Sair do Sistema </a>
+            <a class="text-white" id="logout" href="adm.php"><i class="fa-solid fa-right-from-bracket"></i> Sair do Sistema </a>
         </div>
     </nav>
 

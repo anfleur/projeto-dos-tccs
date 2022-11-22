@@ -37,8 +37,6 @@
 
                     <a class="btn btn-danger btn-login btn-block mt-2" style="height: 40px;" tabindex="-1" role="button">Entrar</a>
 
-                    <!-- <button type="submit" class="btn btn-primary text-light"><a href="cadastro.html" class="link-light text-light">Cadastrar</a></button> -->
-
                 </form>
             </div>
         </div>

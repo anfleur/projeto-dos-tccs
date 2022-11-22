@@ -1,30 +1,30 @@
 <?php
 
-    // Obter a nossa conexão com o banco de dados
+    // Consegue a conexão com o banco de dados
     include('../../conexao/conn.php');
 
-    // Obter os dados enviados do formulário via $_REQUEST
+    // Obtem os dados enviados do formulário via $_REQUEST
     $requestData = $_REQUEST;
 
-    // Verificação de campo obrigatórios do formulário
+    // Verifica os campo obrigatórios do formulário
     if(empty($requestData['NOME'])){
-        // Caso a variável venha vazia eu gero um retorno de erro do mesmo
+        // Se o campo estiver vazio, uma mensagem de erro vai aparecer
         $dados = array(
             "tipo" => 'error',
             "mensagem" => 'Existe(m) campo(s) obrigatório(s) não preenchido(s).'
         );
     } else {
-        // Caso não exista campo em vazio, vamos gerar a requisição
+        // Se o campo estiver preenchido corretamente, a operação entra em um novo IF para o cadastro das informações
         $ID = isset($requestData['ID']) ? $requestData['ID'] : '';
         $operacao = isset($requestData['operacao']) ? $requestData['operacao'] : '';
 
-        // Verifica se é para cadastra um nvo registro
+        // Verifica se é para cadastrar um novo registro
         if($operacao == 'insert'){
+
             // Prepara o comando INSERT para ser executado
             try{
                 $stmt = $pdo->prepare('INSERT INTO CURSO (NOME, EIXO_ID) VALUES (:a, :b)');
                 $stmt->execute(array(
-                    //':a' => utf8_decode($requestData['NOME'])
                     ':a' => $requestData['NOME'],
                     ':b' => $requestData['EIXO_ID'],
                 ));
@@ -39,12 +39,11 @@
                 );
             }
         } else {
-            // Se minha variável operação estiver vazia então devo gerar os scripts de update
+            // Se a variável operação estiver vazia então o sistema deve gerar os scripts para o update
             try{
                 $stmt = $pdo->prepare('UPDATE CURSO SET NOME = :a, EIXO_ID = :b WHERE ID = :id');
                 $stmt->execute(array(
                     ':id' => $ID,
-                     //':a' => utf8_decode($requestData['NOME'])
                     ':a' => $requestData['NOME'],
                     ':b' => $requestData['EIXO_ID']
                 ));
@@ -61,5 +60,4 @@
         }
     }
 
-    // Converter um array ded dados para a representação JSON
     echo json_encode($dados);

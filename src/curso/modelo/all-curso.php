@@ -1,12 +1,12 @@
 <?php
 
-    // Realizar nossa conexão com o banco de dados
+    // Realiza a conexão com o banco de dados
     include('../../conexao/conn.php');
 
-    // Criação da variável array que receberá toda a consulta do banco de dados
+    // Cria a variável array que receberá toda a consulta do banco de dados
     $dados = array();
 
-    // Query de consulta ao banco de dados
+    // Um qyery de consulta ao banco de dados
     $sql = "SELECT * FROM CURSO ORDER BY NOME ASC";
 
     // Executar a querie de consulta SQL
@@ -19,5 +19,8 @@
         }
     }
 
-    // Retorno JSON para
+    // Retorno JSON
     echo json_encode($dados);
+
+
+    

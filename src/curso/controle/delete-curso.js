@@ -1,4 +1,7 @@
+
 $(document).ready(function() {
+
+    
 
     $('#table-curso').on('click', 'button.btn-delete', function(e) {
 
