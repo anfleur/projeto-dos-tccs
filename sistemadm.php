@@ -55,7 +55,7 @@
 
 include('src/conexao/conn.php');
 
-$sql = "SELECT * FROM tcc";
+$sql = "SELECT * FROM tcc ";
 
 $resultado = $pdo->query($sql);
 

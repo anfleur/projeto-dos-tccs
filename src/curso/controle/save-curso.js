@@ -14,13 +14,13 @@ $(document).ready(function() {
             data: dados,
             url: 'src/curso/modelo/save-curso.php',
             success: function(dados) {
-                Swal.fire({
-                    title: 'System TCC',
-                    text: dados.mensagem,
-                    icon: dados.tipo,
+                Swal.fire({ // Inicialização do SweetAlert
+                    title: 'System TCC', // Título da janela SweetAlert
+                    text: dado.mensagem, // Mensagem retornada do microserviço
+                    type: dado.tipo, // Retorna sendo success, info ou error
                     confirmButtonText: 'OK'
                 })
-
+                // Esconde a modal
                 $('#modal-curso').modal('hide')
                 $('#table-curso').DataTable().ajax.reload()
             }

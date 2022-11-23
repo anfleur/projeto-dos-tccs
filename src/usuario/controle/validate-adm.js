@@ -10,7 +10,7 @@ $(document).ready(function() {
 
             if(dados.tipo == 'error'){
 
-                $(location).attr('href', 'index.php')
+                $(location).attr('href', 'adm.php')
             } 
 
             else {

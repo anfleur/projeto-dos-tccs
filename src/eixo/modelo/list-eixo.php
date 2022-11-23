@@ -1,45 +1,44 @@
 <?php
 
-    //Realizar o include da conexão
+    //Realiza o include da conexão
     include('../../conexao/conn.php');
 
 
-    //Obter o request vindo do datatable
+    //Obtem o request vindo do datatable
     $requestData = $_REQUEST;
 
-    //Obter as colunas vindas do resquest
+    //Obtem as colunas vindas do resquest
     $colunas = $requestData['columns'];
 
-    //Preparar o comando sql para obter os dados da categoria
+    //Prepara o comando sql para obter os dados da categoria
     $sql = "SELECT ID, TITULO FROM EIXO WHERE 1=1 ";
 
-    //Obter o total de registros cadastrados
+    //Obtem o total de registros cadastrados
     $resultado = $pdo->query($sql);
     $qtdeLinhas = $resultado->rowCount();
     
-    //Verificando se há filtro determinado
+    //Verifica se há filtro determinado
     $filtro = $requestData['search']['value'];
     if( !empty( $filtro ) ){
-        //Montar a expressão lógica que irá compor os filtros
-        //Aqui você deverá determinar quais colunas farão parte do filtro
+        //Monta a expressão lógica que irá compor os filtros
         $sql .= " AND (ID LIKE '$filtro%' ";
         $sql .= " OR TITULO LIKE '$filtro%') ";
     }
     
-    //Obter o total dos dados filtrados
+    //Obtem o total dos dados filtrados
     $resultado = $pdo->query($sql);
     $totalFiltrados = $resultado->rowCount();
     
-    //Obter valores para ORDER BY      
+    //Obtem valores para ORDER BY      
     $colunaOrdem = $requestData['order'][0]['column']; //Obtém a posição da coluna na ordenação
     $ordem = $colunas[$colunaOrdem]['data']; //Obtém o nome da coluna para a ordenação
     $direcao = $requestData['order'][0]['dir']; //Obtém a direção da ordenação
     
-    //Obter valores para o LIMIT
+    //Obtem valores para o LIMIT
     $inicio = $requestData['start']; //Obtém o ínicio do limite
     $tamanho = $requestData['length']; //Obtém o tamanho do limite
     
-    //Realizar o ORDER BY com LIMIT
+    //Realiza o ORDER BY com LIMIT
     $sql .= " ORDER BY $ordem $direcao LIMIT $inicio, $tamanho ";
     $resultado = $pdo->query($sql);
     $dados = array();

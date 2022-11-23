@@ -1,11 +1,12 @@
+//Lê uma função
 $(document).ready(function() {
 
+     // Especifica que a função terá ligação direta com o botão de delete
     $('#table-curso').on('click', 'button.btn-edit', function(e) {
 
         e.preventDefault()
 
         // Altera as informações do modal para apresentação dos dados
-
         $('.modal-title').empty()
         $('.modal-body').empty()
 
