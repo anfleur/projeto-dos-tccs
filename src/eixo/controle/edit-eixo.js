@@ -4,7 +4,7 @@ $(document).ready(function() {
 
         e.preventDefault()
 
-        // Alterar as informações do modal para apresentação dos dados
+        // Altera as informações do modal para apresentação dos dados
 
         $('.modal-title').empty()
         $('.modal-body').empty()
@@ -41,3 +41,4 @@ $(document).ready(function() {
 
     })
 })
+

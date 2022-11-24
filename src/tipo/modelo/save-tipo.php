@@ -1,14 +1,14 @@
 <?php
 
-    // Obter a nossa conexão com o banco de dados
+    // Faz a conexão com o banco de dados
     include('../../conexao/conn.php');
 
-    // Obter os dados enviados do formulário via $_REQUEST
+    // Resgata os dados enviados do formulário via $_REQUEST
     $requestData = $_REQUEST;
 
     // Verificação de campo obrigatórios do formulário
     if(empty($requestData['NOME'])){
-        // Caso a variável venha vazia eu gero um retorno de erro do mesmo
+        // Caso a variável venha vazia égerado um retorno de erro
         $dados = array(
             "tipo" => 'error',
             "mensagem" => 'Existe(m) campo(s) obrigatório(s) não preenchido(s).'
@@ -37,7 +37,7 @@
                 );
             }
         } else {
-            // Se minha variável operação estiver vazia então devo gerar os scripts de update
+            // Se a variável operação estiver vazia é gerado os scripts de update
             try{
                 $stmt = $pdo->prepare('UPDATE TIPO SET NOME = :a WHERE ID = :id');
                 $stmt->execute(array(

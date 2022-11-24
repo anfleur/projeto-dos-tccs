@@ -15,9 +15,9 @@ $(document).ready(function() {
             showCancelButton: true,
             confirmButtonText: 'Sim',
             cancelButtonText: 'Não'
+
         }).then((result => {
             if (result.value) {
-
                 $.ajax({
                     type: 'POST',
                     dataType: 'json',
@@ -31,8 +31,6 @@ $(document).ready(function() {
                             type: dado.tipo, // Retorna sendo success, info ou error
                             confirmButtonText: 'OK'
                         })
-
-                        
                         $('#table-eixo').DataTable().ajax.reload()
                     }
                 })

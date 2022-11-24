@@ -3,16 +3,16 @@
     // Instância do banco de dados
     include("../../conexao/conn.php");
 
-    // Coleta do ID que será excluído do nosso banco de dados que está sendo enviado pelo FORM
+    // Coleta do ID que será excluído do banco de dados que está sendo enviado pelo FORM
     $ID = $_REQUEST['ID'];
 
-    // Criar a nossa querie para interação com o banco de dados
+    // Cria a query para interação com o banco de dados
     $sql = "DELETE FROM TIPO WHERE ID = $ID";
 
     // Executar a nossa querie
     $resultado = $pdo->query($sql);
 
-    // Testaremos o retorno do resultado da nossa querie
+    // Testa o retorno do resultado da query
     if($resultado){
         $dados = array(
             'tipo' => 'success',
@@ -26,3 +26,7 @@
     }
 
     echo json_encode($dados);
+
+
+
+    

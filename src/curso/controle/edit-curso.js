@@ -42,7 +42,6 @@ $(document).ready(function() {
                                     } else {
                                         $('#EIXO_ID').append(`<option value="${result.ID}">${result.TITULO}</option>`)
                                     }
-
                                 }
                             }
                         })
@@ -60,6 +59,6 @@ $(document).ready(function() {
                 }
             }
         })
-
     })
 })
+

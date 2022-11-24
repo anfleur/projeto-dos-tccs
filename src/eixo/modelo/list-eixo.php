@@ -3,7 +3,6 @@
     //Realiza o include da conexão
     include('../../conexao/conn.php');
 
-
     //Obtem o request vindo do datatable
     $requestData = $_REQUEST;
 
@@ -33,6 +32,8 @@
     $colunaOrdem = $requestData['order'][0]['column']; //Obtém a posição da coluna na ordenação
     $ordem = $colunas[$colunaOrdem]['data']; //Obtém o nome da coluna para a ordenação
     $direcao = $requestData['order'][0]['dir']; //Obtém a direção da ordenação
+
+    
     
     //Obtem valores para o LIMIT
     $inicio = $requestData['start']; //Obtém o ínicio do limite

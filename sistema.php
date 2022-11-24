@@ -28,6 +28,9 @@
                 <li class="nav-item">
                     <a class="nav-link text-white" href="src/tcc/visao/list-tcc.html"><i class="fa-solid fa-bookmark"></i> Trabalhos de Conclusão </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="pesquisa/pesquisa.php"><i class="fa-solid fa-search"></i> Pesquisa </a>
+                </li>
             </ul>
             <a class="text-white" id="logout" href="index.php"><i class="fa-solid fa-right-from-bracket"></i> Sair do Sistema </a>
         </div>
@@ -36,16 +39,7 @@
     <br>
     <br>
     
-    <div id="content" class="container mt-5">
-
-    <form action="sistema.php" method="post" class="input-group">
-        <input type="text" class="form-control form-search rounded" placeholder="Pesquisa" name="pesquisa" aria-describedby="search-addon" />
-        <button type="submit" id="btn-pesquisar" value="Pesquisar" name="PesquisarTCC" class="btn btn-outline-primary">Pesquisar</button>
-    </form>
-
-
-
-
+    <div id="content" class="container mt-2">
 
     <section id="content" class="mt-3 py-5">
 
@@ -95,7 +89,7 @@
     <script src="libs/sweetAlert/dist/sweetalert2.all.js"></script>
     <!-- <script src="src/usuario/controle/validate-usuario.js"></script>
     <script src="src/usuario/controle/logout-usuario.js"></script> -->
-    <script src="src/pesquisa/search.js"></script>
+    <script src="pesquisa/java.js"></script>
    
 </body>
 

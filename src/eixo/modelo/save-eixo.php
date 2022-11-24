@@ -59,3 +59,5 @@
 
     // Converte para JSON
     echo json_encode($dados);
+
+    

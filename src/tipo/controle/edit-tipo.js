@@ -4,8 +4,6 @@ $(document).ready(function() {
 
         e.preventDefault()
 
-        // Alterar as informações do modal para apresentação dos dados
-
         $('.modal-title').empty()
         $('.modal-body').empty()
 
@@ -25,6 +23,7 @@ $(document).ready(function() {
                         $('#NOME').val(dado.dados.NOME)
                         $('#ID').val(dado.dados.ID)
                     })
+
                     $('.btn-save').show()
                     $('.btn-save').removeAttr('data-operation')
                     $('#modal-tipo').modal('show')
@@ -41,3 +40,4 @@ $(document).ready(function() {
 
     })
 })
+

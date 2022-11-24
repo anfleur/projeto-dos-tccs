@@ -35,6 +35,7 @@ $(document).ready(function() {
                                         $('#EIXO_ID').append(`<option value="${dado.ID}">${dado.TITULO}</option>`)
                                     }
                                 }
+
                             }
                         })
                     })
@@ -53,3 +54,4 @@ $(document).ready(function() {
 
     })
 })
+
