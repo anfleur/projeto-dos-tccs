@@ -1,39 +1,35 @@
-<div id="content" class="mt-5">
-
-            <div class="h-100">
-                <input id="searchbar" onkeyup="search_TCC()" type="text" class="form-control rounded" placeholder="Pesquisa" name="pesquisa"/>
-            </div>
-    <section id="content" class="py-5">
-    <div class="row row-cols-1 row-cols-md-4 g-4 " >
-      
-
 <?php
-
-    include('../src/conexao/conn.php');
-
-    $sql = "SELECT * FROM tcc";
-    $resultado = $pdo->query($sql);
-
-    while($row = $resultado->fetch(PDO::FETCH_ASSOC)){
-
+ include('../src/conexao/conn.php');
 ?>
 
-<div class=" TCC col-4 mb-4" >
-    <div class="card shadow-sm p-3 mb-5 bg-white rounded h-100">
-        <div class="card-body roun">
-            <h5 class="card-header text-white " style="background-color: #C21010;" >
-            <?php echo $row['TITULO']. ", " . $row['ANO'] . '<br />'; ?></h5>
-            <p class="card-text text-left mt-3 mb-4"><?php echo "Autores: " .$row['AUTOR_1'] .", " .$row['AUTOR_2'] . '<br/>'; ?></p>
-            <h5 class="card-text text-left"> <?php echo $row['RESUMO'].'<br />'; ?></h5> 
-        </div>
-            <a href="src/tcc/modelo/arquivos/<?php echo $row['ARQUIVO']; ?>" target="_BLANK" class="btn btn-lg text-white" tabindex="-1" role="button" style="background-color: #C21010;" > Baixar</a>
-        </div>
-    </div>
+<?php
+    $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+?>
 
-<?php } ?>
+<form action="" method="POST">
+    <input type="text" name="texto_pesquisar" placeholder="Pesquisar pelo TCC">
+    <input type="submit" value="Pesquisar" name="PesqUsuario">
+</form>
 
-    </div>
-    </section> 
-</div>
-    
-    <script src="pesquisa/java.js"></script>
+
+<?php
+if (!empty($dados["PesqUsuario"])){
+    $TITULO = "%".$dados['texto_pesquisar']."%";
+    $query_tccs = "SELECT ID, TITULO FROM tcc WHERE TITULO LIKE :TITULO ORDER BY ID DESC";
+    $result_tccs = $conn->prepare($query_tccs);
+    $result_tccs->bindParam(':TITULO', $TITULO);
+    $result_tccs->execute();
+
+    if(($result_tccs) and ($result_tccs->rowCount()!= 0)){
+        while($result_tccs->fetch(PDO::FETCH_ASSOC)){
+            extract($row_tcc);
+            echo "ID: $ID <br>";
+            echo "TITULO: $TITULO";
+        }
+    }else{
+        echo "<p class='text-danger' > Nenhum resultado achado </p>";
+    }
+}
+
+
+?>

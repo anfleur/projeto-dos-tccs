@@ -89,7 +89,6 @@
     <script src="libs/sweetAlert/dist/sweetalert2.all.js"></script>
     <!-- <script src="src/usuario/controle/validate-usuario.js"></script>
     <script src="src/usuario/controle/logout-usuario.js"></script> -->
-    <script src="pesquisa/java.js"></script>
    
 </body>
 
