@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="css/sistema.css">
 </head>
 
-<body class="font-principal">
+<body>
 
     <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow" style="background-color: #C21010;">
         <button class="navbar-toggler" data-target="#my-nav" data-toggle="collapse" aria-controls="my-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,30 +42,27 @@
     <div id="content" class="container mt-2">
 
     <section id="content" class="mt-3 py-5">
-
         <div class="row row-cols-1 row-cols-md-4 g-4 " >
+
 
     <?php
 
     include('src/conexao/conn.php');
 
-    $sql = "SELECT * FROM tcc";
+    $sql = "SELECT * FROM tcc WHERE VALIDACAO = 2 ";
 
     $resultado = $pdo->query($sql);
 
     while($row = $resultado->fetch(PDO::FETCH_ASSOC)){
     ?>
     
-    <div class="col-4 mb-4" >
-      <div class="card shadow-sm p-3 mb-5 bg-white rounded h-100">
-       
-           
+    <div class="col col-md-4 col-sm-12 mb-4" >
+      <div class="card shadow-sm p-3 mb-5 bg-white rounded h-100"> 
         <div class="card-body roun">
             <h5 class="card-header text-white " style="background-color: #C21010;" >
             
             <?php echo $row['TITULO']. ", " . $row['ANO'] . '<br />'; ?></h5>
-            <p class="card-text text-left mt-3 mb-4"><?php echo "Autores: " .$row['AUTOR_1'] .", " .$row['AUTOR_2'] . '<br/>'; ?></p>
-            <h5 class="card-text text-left"> <?php echo $row['RESUMO'].'<br />'; ?></h5> 
+            <p class="card-text text-left mt-3 mb-4"><?php echo "Autores: " .$row['AUTOR_1'] .", " .$row['AUTOR_2'] . ", ".$row['AUTOR_3'] .", " .$row['AUTOR_4'] . '<br/>'; ?></p>
         </div>
             <a href="src/tcc/modelo/arquivos/<?php echo $row['ARQUIVO']; ?>" target="_BLANK" class="btn btn-lg text-white" tabindex="-1" role="button" style="background-color: #C21010;" > Baixar</a>
         </div>
@@ -89,6 +86,7 @@
     <script src="libs/sweetAlert/dist/sweetalert2.all.js"></script>
     <!-- <script src="src/usuario/controle/validate-usuario.js"></script>
     <script src="src/usuario/controle/logout-usuario.js"></script> -->
+    <script src="pesquisa/java.js"></script>
    
 </body>
 

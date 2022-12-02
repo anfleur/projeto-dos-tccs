@@ -50,11 +50,17 @@
             <label>Ano</label>
             <input type="number" name="ANO" id="ANO" class="form-control">
         </div>
-        <div class="col-12 col-md-8">
-            <label>Arquivo</label>
-            <input type="file" name="ARQUIVO" id="ARQUIVO" class="form-control">
-        </div>
-    </div>
+        
+    <div class="col-12 col-md-6">
+        <label> O TCC é valido? </label>
+        <select name="VALIDACAO" id="VALIDACAO" class="form-control">
+        <option value="2"> Sim </option>
+        <option value="1"> Não </option>
+        </select>
+    </div>   
+
+
     <input type="hidden" name="ID" id="ID">
-    <input type="hidden" name="operacao" id="operacao" value="insert">
+    
+
 </form>
