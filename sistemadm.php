@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="libs/fontawesome/css/all.css">
     <link rel="stylesheet" href="libs/sweetAlert/dist/sweetalert2.css">
     <link rel="stylesheet" href="libs/DataTables/datatables.css">
+    <link rel="stylesheet" href="css/sistema.css">
 </head>
 
 <body>
