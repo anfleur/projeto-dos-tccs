@@ -2,6 +2,7 @@
 
 body{
     overflow:hidden;
+    background-image: linear-gradient(to bottom left, white, #C21010);
 }
 
 .font-principal{
