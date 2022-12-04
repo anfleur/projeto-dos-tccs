@@ -1,3 +1,6 @@
+<?php 
+     include('src/conexao/conn.php');
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -28,9 +31,6 @@
                 <li class="nav-item">
                     <a class="nav-link text-white" href="src/tcc/visao/list-tcc.html"><i class="fa-solid fa-bookmark"></i> Trabalhos de Conclusão </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="pesquisa/pesquisa.php"><i class="fa-solid fa-search"></i> Pesquisa </a>
-                </li>
             </ul>
             <a class="text-white" id="logout" href="index.php"><i class="fa-solid fa-right-from-bracket"></i> Sair do Sistema </a>
         </div>
@@ -40,28 +40,43 @@
     <br>
     
     <div id="content" class="container mt-2">
+        <div class="col mt-2">
+            <select>
+				<?php
+                    $stmt = $pdo->prepare("SELECT * FROM curso ORDER BY NOME ASC");
+                    $stmt->execute();
 
-    <section id="content" class="mt-3 py-5">
-        <div class="row row-cols-1 row-cols-md-4 g-4 " >
+                    if($stmt->rowCount() > 0){
+                        while($dados = $stmt->fetch(PDO::FETCH_ASSOC)){
+                            echo "<option value = '{$dados['ID']}'>{$dados['NOME']}</option>";
+                        }
 
+                    }
+                ?>
+                    
+			</select>
+        </div>
+        <div class="row row-cols-1 row-cols-md-4 g-4 mt-5 " >
 
-    <?php
+        <?php
 
-    include('src/conexao/conn.php');
+            $sql = "SELECT * FROM tcc WHERE VALIDACAO = 2 ";
 
-    $sql = "SELECT * FROM tcc WHERE VALIDACAO = 2 ";
+            $resultado = $pdo->query($sql);
 
-    $resultado = $pdo->query($sql);
-
-    while($row = $resultado->fetch(PDO::FETCH_ASSOC)){
-    ?>
+            while($row = $resultado->fetch(PDO::FETCH_ASSOC)){
+        ?>
     
     <div class="col col-md-4 col-sm-12 mb-4" >
       <div class="card shadow-sm p-3 mb-5 bg-white rounded h-100"> 
         <div class="card-body roun">
             <h5 class="card-header text-white " style="background-color: #C21010;" >
-            
-            <?php echo $row['TITULO']. ", " . $row['ANO'] . '<br />'; ?></h5>
+        
+            <?php 
+                echo $row['TITULO']. ", " . $row['ANO'] . '<br />'; 
+            ?>
+
+            </h5>
             <p class="card-text text-left mt-3 mb-4"><?php echo "Autores: " .$row['AUTOR_1'] .", " .$row['AUTOR_2'] .", " .$row['AUTOR_3'] .", " .$row['AUTOR_4'] . "." . '<br/>'; ?></p>
         </div>
             <a href="src/tcc/modelo/arquivos/<?php echo $row['ARQUIVO']; ?>" target="_BLANK" class="btn btn-lg text-white" tabindex="-1" role="button" style="background-color: #C21010;" > Baixar</a>
@@ -69,13 +84,15 @@
     </div>
    
 
-    <?php } ?>
+            <?php 
+                } 
+            ?>
+    
     </div>
     </div>
 
     </div>
-</div>
-</section> 
+    </div> 
     </div>
 
     <script src="js/jquery-3.6.0.js"></script>

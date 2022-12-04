@@ -35,7 +35,6 @@
                                 ':g' => $requestData['AUTOR_4'],
                                 ':h' => $requestData['COORIENTADOR'],
                                 ':i' => $requestData['ORIENTADOR'],
-                                
                                 ':k' => $requestData['CURSO_ID'],
                                 ':l' =>$requestData['VALIDACAO'],
                             ));
@@ -65,7 +64,6 @@
                                 ':g' => $requestData['AUTOR_4'],
                                 ':h' => $requestData['COORIENTADOR'],
                                 ':i' => $requestData['ORIENTADOR'],
-                                
                                 ':k' => $requestData['CURSO_ID'],
                                 ':l' =>$requestData['VALIDACAO'],
 
