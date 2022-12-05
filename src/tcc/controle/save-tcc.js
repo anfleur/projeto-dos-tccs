@@ -24,6 +24,7 @@ $(document).ready(function() {
                 })
 
                 $('#modal-tcc').modal('hide')
+                $('#table-tcc').DataTable().ajax.reload()
                     // $('#table-trabalho').DataTable().ajax.reload()
             }
         })

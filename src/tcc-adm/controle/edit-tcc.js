@@ -29,7 +29,7 @@ $(document).ready(function() {
                         $('#AUTOR_2').val(dado.dados.AUTOR_2)
                         $('#AUTOR_3').val(dado.dados.AUTOR_3)
                         $('#AUTOR_4').val(dado.dados.AUTOR_4)
-                        $('#COORDENADOR').val(dado.dados.COORDENADOR)
+                        $('#COORIENTADOR').val(dado.dados.COORIENTADOR)
                         $('#ORIENTADOR').val(dado.dados.ORIENTADOR)
                         $('#ARQUIVO').val(dado.dados.ARQUIVO)
                         $('#CURSO_ID').empty()

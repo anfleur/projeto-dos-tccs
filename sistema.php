@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>System TCC</title>
-    <link rel="shortcut icon" href="img/logo72.png" type="image/x-icon">
+    <link rel="shortcut icon" href="img/logoSystemTCC.png" type="image/x-icon">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="libs/fontawesome/css/all.css">
     <link rel="stylesheet" href="libs/sweetAlert/dist/sweetalert2.css">
@@ -19,7 +19,7 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow" style="background-color: #C21010;">
+    <nav class="navbar navbar-expand-lg navbar-scroll fixed-top shadow">
         <button class="navbar-toggler" data-target="#my-nav" data-toggle="collapse" aria-controls="my-nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
