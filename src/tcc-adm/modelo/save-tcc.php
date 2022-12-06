@@ -25,7 +25,7 @@
             try{
                 $stmt = $pdo->prepare('INSERT INTO tcc (VALIDACAO, TITULO, ANO, RESUMO, AUTOR_1, AUTOR_2, AUTOR_3, AUTOR_4, COORIENTADOR, ORIENTADOR, CURSO_ID) VALUES (:a, :b, :c, :d, :e, :f, :g, :h, :i, :j, :k)');
                 $stmt->execute(array(
-                    ':a' => $requestData['VALIDAÇAO'],
+                    ':a' => $requestData['VALIDACAO'],
                     ':b' => $requestData['TITULO'],
                     ':c' => $requestData['ANO'],
                     ':d' => $requestData['RESUMO'],
@@ -53,7 +53,7 @@
                 $stmt = $pdo->prepare('UPDATE tcc SET VALIDACAO = :a, TITULO = :b, ANO = :c, RESUMO = :d, AUTOR_1 = :e, AUTOR_2 = :f, AUTOR_3 = :g, AUTOR_4 = :h, COORIENTADOR = :i, ORIENTADOR = :j , CURSO_ID = :k WHERE ID = :id');
                 $stmt->execute(array(
                     ':id' => $ID,
-                    ':a' => $requestData['VALIDAÇAO'],
+                    ':a' => $requestData['VALIDACAO'],
                     ':b' => $requestData['TITULO'],
                     ':c' => $requestData['ANO'],
                     ':d' => $requestData['RESUMO'],
