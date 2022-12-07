@@ -46,7 +46,7 @@ $(document).ready(function() {
                         $.ajax({
                             type: 'POST',
                             dataType: 'json',
-                            url: 'src/tipo/modelo/all-curso.php',
+                            url: 'src/curso/modelo/all-curso.php',
                             success: function(dados) {
                                 for (const dado of dados) {
                                     if (dado.ID == curso) {
