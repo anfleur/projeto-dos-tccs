@@ -20,24 +20,27 @@
 
 <div class="container mt-2">
     <div class="d-flex justify-content-center vertical-center">
-        <div class="card mt-5" style="width: 20rem;">
-            <i class="fa fa-sign-in"></i>
+        <div class="card mt-5 border-0 bg-white" style="width: 20rem;">
             <div class="card-body">
+                <img class="card-img" src="img/img4.png" alt="">
                 <form id="form-login">
-                    <div class="mb-3">
+                       <div class="mb-3">
                         <label class="form-label">Login:</label>
                         <input type="LOGIN" name="LOGIN" class="form-control" id="LOGIN" placeholder="Digite seu usuário...">
                     </div>
+
                     <div class="mb-3">
                         <label class="form-label">Senha:</label>
                         <input type="password" class="form-control" id="SENHA" name="SENHA" placeholder="Digite sua senha..." >
                     </div>
 
                     <a class="btn btn-danger btn-login btn-block mt-2" style="height: 40px;" tabindex="-1" role="button">Entrar</a>
+
                 </form>
             </div>
         </div>
     </div>
+</div>
 </div>
 
 <script src="js/jquery-3.6.0.js"></script>

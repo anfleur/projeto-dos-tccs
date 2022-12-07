@@ -16,7 +16,7 @@
 
 </head>
 
-<body class="font-principal">
+<body>
 
 
 <div class="container mt-2">
