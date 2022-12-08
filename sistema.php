@@ -49,7 +49,7 @@
             while($row = $resultado->fetch(PDO::FETCH_ASSOC)){
         ?>
     
-    <div class="col col-md-4 col-sm-12 mb-4" >
+    <div class="col col-md-4 col-sm-12 mb-4 mt-5" >
         <div class="card-group">
             <div class="card">
                 <div class="card-header bg-white">
